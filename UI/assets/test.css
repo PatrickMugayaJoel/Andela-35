@@ -12,13 +12,17 @@ font-family: Arial, Helvetica, sans-serif;
     margin: auto auto;
 }
 
-.infor ul li, footer ul li {
+.infor ul li, footer ul li, #navigation ul li {
     list-style: none;
     display: inline;
     margin: 0px 5px;
 }
 
-.infor ul li a, footer ul li a {
+#navigation {
+    display: flow-root;
+}
+
+.infor ul li a, footer ul li a , #navigation ul li a {
     text-decoration: none;
 }
 
