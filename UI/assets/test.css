@@ -1,0 +1,21 @@
+#wrapper {
+margin: 0%;
+padding: 0%;
+height: 100%;
+width: 100%;
+background-color: #fff;
+}
+
+#body {
+    text-align: center;
+    margin: auto auto;
+}
+
+.infor ul li, footer span ul li {
+    list-style: none;
+    display: inline;
+}
+
+#rightlist {
+    float: right;
+}
