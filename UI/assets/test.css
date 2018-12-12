@@ -11,11 +11,20 @@ background-color: #fff;
     margin: auto auto;
 }
 
-.infor ul li, footer span ul li {
+.infor ul li, footer #second ul li {
     list-style: none;
     display: inline;
 }
-
+.infor ul li a, footer #second ul li a {
+    text-decoration: none;
+}
 #rightlist {
     float: right;
+}
+footer{
+    background-color: #f2f3f4;
+}
+footer #first {
+    border-bottom: 1px;
+    border-color: black;
 }
