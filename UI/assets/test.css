@@ -11,20 +11,53 @@ background-color: #fff;
     margin: auto auto;
 }
 
-.infor ul li, footer #second ul li {
+.infor ul li, footer ul li {
     list-style: none;
     display: inline;
 }
-.infor ul li a, footer #second ul li a {
+
+.infor ul li a, footer ul li a {
     text-decoration: none;
 }
+
 #rightlist {
     float: right;
 }
-footer{
-    background-color: #f2f3f4;
+
+footer div {
+    border-top: 1px;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    background-color: #bebfc01a;
+    border-color: #d2cece99;
+    width:inherit;
+    padding: 15px 20px;
+    border-style: solid;
 }
-footer #first {
-    border-bottom: 1px;
-    border-color: black;
+
+footer ul{
+    margin: 0%;
+    padding: 0%;
+}
+
+footer, footer a {
+    color: #00000080;
+}
+
+#logo {
+    font-size: 110px;
+    margin: 5px 0px;
+}
+
+.searchform input{
+    margin: 5px 0px;
+    padding: 5px;
+    border-radius: 2px;
+    height: 30px;
+}
+
+.searchform form div{
+    margin: 5px 0px;
+    padding: 5px;
 }
