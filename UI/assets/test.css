@@ -4,7 +4,7 @@ padding: 0%;
 height: 100%;
 width: 100%;
 background-color: #fff;
-font-family: Arial, Helvetica, sans-serif;
+font-family: arial,sans-serif;
 }
 
 #body {
@@ -28,7 +28,6 @@ font-family: Arial, Helvetica, sans-serif;
 
 .infor ul li a{
     color: #0609f8;
-    font-size: 14px;
 }
 
 .infor ul li a:hover, footer a:hover {
@@ -44,10 +43,10 @@ footer div {
     border-bottom: 0px;
     border-right: 0px;
     border-left: 0px;
-    background-color: #bebfc01a;
-    border-color: #d2cece99;
-    width:inherit;
-    padding: 15px 20px;
+    background-color: #f2f2f2;
+    border-color: #e4e4e4;
+    width:97%;
+    padding: 10px 20px;
     border-style: solid;
 }
 
@@ -64,6 +63,31 @@ footer, footer a {
     font-size: 99px;
     margin: 5px 0px;
     letter-spacing: -5px;
+    margin-top: 7%;
+}
+
+#logo span:nth-child(1){
+    color: #4285f4;
+}
+
+#logo span:nth-child(2){
+    color: #ea4335;
+}
+
+#logo span:nth-child(3){
+    color: #fbbc05;
+}
+
+#logo span:nth-child(4){
+    color: #4285f4;
+}
+
+#logo span:nth-child(5){
+    color: #34a853;
+}
+
+#logo span:nth-child(6){
+    color: #ea4335;
 }
 
 .searchform input{
@@ -95,3 +119,15 @@ footer, footer a {
     color: #00000080;
     font-weight: bold;
 }
+
+.searchbuttons input:hover {
+    border-style: solid;
+    color: black;
+    border-width: 1px;
+  }
+
+  footer{
+    bottom:0;
+    position: absolute;
+    width:98.8%;
+  }
