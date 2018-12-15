@@ -1,0 +1,112 @@
+
+#wrapper {
+    margin: auto;
+    padding: 0%;
+    height: 100%;
+    width: 70%;
+    background-color: #fff;
+    font-family: arial,sans-serif;
+    text-align: center;
+    }
+    
+#navigation ul li a {
+    text-decoration: none;
+}
+
+#main a{
+    color: #6c6666b3;
+}
+
+#main{
+    margin-top: 5%;
+}
+
+#navigation ul li {
+    list-style: none;
+    display: inline;
+    margin: 0px;
+}
+
+hr{
+    color: #eae3e333;
+}
+
+form table{
+    margin: auto;
+    width: 80%;
+}
+
+table{
+    text-align: left;
+}
+
+#main_content .inputfield input,
+#main_content .doublefield input,
+#main_content .inputfield textarea
+{
+    border-radius: 3px;
+    border-color: #86868733;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px 10px;
+    box-shadow: 0px 2px 1px #47a2c61a;
+}
+
+textarea
+{
+    height: 70px;
+}
+
+#main_content .inputfield input[type=text],
+#main_content .inputfield input[type=password],
+#main_content .inputfield input[type=email],
+#main_content .inputfield textarea
+{
+    width: 96%;
+}
+
+#main_content .doublefield input[type=text]
+{
+    height: 35px;
+    width: 45.6%;
+}
+
+.inputfield{
+    width: 75%;
+}
+
+.inputfield input
+{
+    height: 35px;
+    display: inline-block;
+}
+
+#formheading{
+margin-top: 10%;
+}
+
+.inputfield input[type=submit]{
+margin: 0px;
+width: 100%;
+color: #6c6666b3;
+border-width: 0px;
+}
+
+#main a
+{
+    padding: 17px;
+    margin: 0px;
+}
+
+#navigation #main a:hover,
+#navigation #main a:active
+{
+    background-color: #b7b7c34d;
+    color: black;
+}
+
+.inputfield input[type=submit]:hover, .inputfield input[type=submit]:active {
+    color: black;
+    background-color: #b7b7c34d;
+    cursor: pointer;
+  }
