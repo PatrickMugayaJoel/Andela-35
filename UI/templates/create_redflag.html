@@ -19,21 +19,26 @@
     <hr>
 
     <div id="main_content">
-        <div id="login">
-            <h3 id="formheading">LOGIN</h3>
+        <div id="flag">
+            <h3 id="formheading">Report Red Flag</h3>
             <form action="#" method="POST">
         <table>
             <tr>
-                <td><label>Username</label></td>
-                <td class="inputfield"><input type="text" name="username" placeholder="Username"></td>
+                <td><label>Description</label></td>
+                <td class="inputfield"><textarea name="description">
+
+                </textarea></td>
             </tr>
             <tr>
-                <td><label>Password</label></td>
-                <td class="inputfield"><input type="password" name="password" placeholder="Password"></td>
+                <td><label>Latitude & Longitude</label></td>
+                <td class="doublefield">
+                    <input type="text" name="latitude" placeholder="latitude">
+                    <input type="text" name="longitude" placeholder="longitude">
+                </td>
             </tr>
             <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" value="Login" name="login"></td>
+                <td class="inputfield"><input type="submit" value="Report" name="report"></td>
             </tr>
         </table>
             </form>

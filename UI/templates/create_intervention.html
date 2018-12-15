@@ -19,21 +19,23 @@
     <hr>
 
     <div id="main_content">
-        <div id="login">
-            <h3 id="formheading">LOGIN</h3>
+        <div id="intervention">
+            <h3 id="formheading">Create Flag Intervention</h3>
             <form action="#" method="POST">
         <table>
             <tr>
-                <td><label>Username</label></td>
-                <td class="inputfield"><input type="text" name="username" placeholder="Username"></td>
+                <td><label>Flag</label></td>
+                <td class="inputfield">
+                    <input type="text" name="latitude" placeholder="flag">
+                </td>
             </tr>
             <tr>
-                <td><label>Password</label></td>
-                <td class="inputfield"><input type="password" name="password" placeholder="Password"></td>
+                <td><label>Description</label></td>
+                <td class="inputfield"><textarea name="description">Describe how you are going to intervene</textarea></td>
             </tr>
             <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" value="Login" name="login"></td>
+                <td class="inputfield"><input type="submit" value="intervene" name="intervention"></td>
             </tr>
         </table>
             </form>
