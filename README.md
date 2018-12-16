@@ -27,7 +27,6 @@ For installation of this project:  `$ https://github.com/PatrickMugayaJoel/Andel
 # Installing
 
 * Clone this: https://github.com/PatrickMugayaJoel/Andela-35/tree/develop
-* Install requirements
 * Execute the 'index.html' file in the following directory: '/UI/templates'.
 
 ## Login Credentials
