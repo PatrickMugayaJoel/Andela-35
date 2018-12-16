@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>I Reporter</title>
     <link type="text/css" rel="stylesheet" href="../assets/ireporter.css" />
 </head>
 <body>
 <div id="wrapper">
 
-    <div id="navigation">
-        <ul id="main">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Red flag</a></li>
-            <li><a href="#">Intervention</a></li>
-            <li><a href="#">Signin</a></li>
-        </ul>
-    </div>
-
     <hr>
 
     <div id="main_content">
         <div id="login">
             <h3 id="formheading">LOGIN</h3>
-            <form action="#" method="POST">
+            <form onsubmit="tologin()" method="POST">
         <table>
             <tr>
                 <td><label>Username</label></td>
-                <td class="inputfield"><input type="text" name="username" placeholder="Username"></td>
+                <td class="inputfield"><input required value="joel" type="text" id="username" name="username" placeholder="Username"></td>
             </tr>
             <tr>
                 <td><label>Password</label></td>
-                <td class="inputfield"><input type="password" name="password" placeholder="Password"></td>
+                <td class="inputfield"><input required value="joel" type="password" id="password" name="password" placeholder="Password"></td>
             </tr>
             <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" value="Login" name="login"></td>
+                <td class="inputfield"><input type="submit" id="login" value="Login" name="login"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="inputfield"><div>Or <a href="signup.html">SignUp</a></div></td>
             </tr>
         </table>
             </form>
@@ -41,5 +37,17 @@
     </div>
 
 </div>
+<script>
+    function tologin(){
+        var username = document.getElementById("username").value;
+        if (username == "admin"){
+            window.location.href = "./incidents_admin/list.html";
+            alert('');
+        }else{
+            window.location.href = "./incidents/list.html";
+            alert('');
+        }
+    }
+</script>
 </body>
 </html>
