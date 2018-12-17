@@ -6,16 +6,16 @@ IReporter is a government system that enables citizens to bring any form of cor
 Users can also report on things that needs government intervention
     
 
-# Getting Started
+## Getting Started
 
 For installation of this project:  `$ https://github.com/PatrickMugayaJoel/Andela-35.git`
 
-# Prerequisites
+## Prerequisites
 
 * A text editor e.g. Sublime Text, Notepad++
 * A web browser e.g. Google Chrome, Mozilla Firefox
 
-# Features
+## Features
 
 * Users can signup.
 * Users can login.
@@ -23,11 +23,11 @@ For installation of this project:  `$ https://github.com/PatrickMugayaJoel/Andel
 * Users can view all incidents.
 * Government can intervene in on an incident.
  
-# Languages
+## Languages
 
 * HTML 5 and CSS 3
  
-# Installing
+## Installing
 
 * Clone this: https://github.com/PatrickMugayaJoel/Andela-35/tree/develop
 * Execute the 'index.html' file in the following directory: '/UI/templates'.
