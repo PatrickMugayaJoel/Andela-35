@@ -107,7 +107,7 @@ textarea
 #main_content .doublefield input
 {
     height: 35px;
-    width: 45.6%;
+    width: 44.6%;
 }
 
 .inputfield{
@@ -182,4 +182,86 @@ footer div{
 
 .inputfield div{
     margin-top: 10px;
+}
+
+/* ------------------ small device menu ------------------------- */
+
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .menu {
+      display: none;
+  }
+  
+  .menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .menu-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .menu a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+  /* --------------------------------------------------------------- */
+
+@media only screen and (max-width: 1101px){
+
+form label{
+    display: none;
+}
+
+.inputfield{
+    width: 100%;
+}
+
+#main_content .doublefield input
+{
+    width: 96%;
+}
+
+#incident
+{
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.menu {
+    position: absolute;
+      left: 0;
+      top: 0;
+      margin: 15px;
+      display: block;
+}
+
+#main{
+    display: none;
+}
+
+#wrapper{
+    width: 90%;
+}
+
 }
