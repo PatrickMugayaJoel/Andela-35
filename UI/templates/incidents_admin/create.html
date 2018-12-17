@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I Reporter</title>
+    <link type="text/css" rel="stylesheet" href="../../assets/ireporter.css" />
+</head>
+<body>
+<div id="wrapper">
+
+        <div id="navigation">
+                <ul class="pullleft inlineblock">
+                    <li>ADMIN</li>
+                </ul>
+                <ul id="main" class="inlineblock">
+                    <li><a href="../userprofile_admin.html">Profile</a></li>
+                    <li><a href="../users.html">Users</a></li>
+                    <li><a href="list.html">Incidents</a></li>
+                    <li><a href="incident.html">Incident</a></li>
+                    <li><a href="create.html">Add Incident</a></li>
+                    <li><a href="../index.html">Logout</a></li>
+                </ul>
+        </div>
+
+    <hr>
+
+    <div id="main_content">
+        <div id="flag">
+            <h3 id="formheading">Report Incident</h3>
+            <form action="list.html" method="POST">
+        <table>
+            <tr>
+                <td><label>Description</label></td>
+                <td class="inputfield"><textarea required name="description">
+
+                </textarea></td>
+            </tr>
+            <tr>
+                <td><label>Geolocation </label></td>
+                <td class="doublefield">
+                    <input required type="text" name="latitude" placeholder="latitude">
+                    <input required type="text" name="longitude" placeholder="longitude">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="inputfield"><input type="submit" value="Report" name="report"></td>
+            </tr>
+        </table>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+            <small>
+                <div class="pullleft">
+                    Andela
+                </div>
+                <div class="pullright">
+                    copy right Josean 2019.
+                </div>
+            </small>
+        </footer>
+    
+</div>
+</body>
+</html>
