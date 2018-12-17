@@ -3,26 +3,7 @@
 <head>
     <title>I Reporter</title>
     <link type="text/css" rel="stylesheet" href="../../assets/ireporter.css" />
-
-    <script type="text/javascript">
-		function myFunction() {
-    document.getElementById("mymenu").classList.toggle("show");
-  }
-  
-// Close the menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var menus = document.getElementsByClassName("menu-content");
-      var i;
-      for (i = 0; i < menus.length; i++) {
-        var openmenu = menus[i];
-        if (openmenu.classList.contains('show')) {
-          openmenu.classList.remove('show');
-        }
-      }
-    }
-  }
-	</script>
+    <script src="../../assets/ireporter.js"></script> 
 
 </head>
 <body>
@@ -33,13 +14,16 @@
         <div class="menu">
             <button onclick="myFunction()" class="dropbtn">&#9776;</button>
             <div id="mymenu" class="menu-content">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                    <a href="../userprofile_admin.html">Profile</a>
+                    <a href="../users.html">Users</a>
+                    <a href="list.html">Incidents</a>
+                    <a href="incident.html">Incident</a>
+                    <a href="create.html">Add Incident</a>
+                    <a href="../index.html">Logout</a>
             </div>
         </div>
     
-                <ul class="pullleft inlineblock">
+                <ul class="usertype inlineblock">
                     <li>ADMIN</li>
                 </ul>
                 <ul id="main" class="inlineblock">
