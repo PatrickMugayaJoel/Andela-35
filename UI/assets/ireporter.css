@@ -140,16 +140,16 @@ border-width: 0px;
 }
 
 #navigation #main a:hover,
-#navigation #main a:active
+#navigation #main a:focus
 {
     background-color: #b7b7c34d;
     color: black;
 }
 
 .inputfield input[type=submit]:hover,
-.inputfield input[type=submit]:active,
+.inputfield input[type=submit]:focus,
 .inputfield input[type=button]:hover,
-.inputfield input[type=button]:active
+.inputfield input[type=button]:focus
  {
     color: black;
     background-color: #b7b7c34d;
@@ -182,6 +182,10 @@ footer div{
 
 .inputfield div{
     margin-top: 10px;
+}
+
+.usertype{
+    float: left;
 }
 
 /* ------------------ small device menu ------------------------- */
@@ -262,6 +266,19 @@ form label{
 
 #wrapper{
     width: 90%;
+}
+
+hr{
+    display: none;
+}
+
+.usertype{
+    float: none;
+    padding: 0px;
+}
+
+footer{
+    padding: 0px;
 }
 
 }

@@ -3,14 +3,28 @@
 <head>
     <title>I Reporter</title>
     <link type="text/css" rel="stylesheet" href="../assets/ireporter.css" />
+    <script src="../assets/ireporter.js"></script> 
 </head>
 <body>
 <div id="wrapper">
 
     <div id="navigation">
-            <ul class="pullleft inlineblock">
-                <li>ADMIN</li>
-            </ul>
+
+        <div class="menu">
+            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+            <div id="mymenu" class="menu-content">
+                    <a href="userprofile_admin.html">Profile</a>
+                    <a href="users.html">Users</a>
+                    <a href="./incidents_admin/list.html">Incidents</a>
+                    <a href="./incidents_admin/incident.html">Incident</a>
+                    <a href="./incidents_admin/create.html">Add Incident</a>
+                    <a href="index.html">Logout</a>
+            </div>
+        </div>
+    
+                <ul class="usertype inlineblock">
+                    <li>ADMIN</li>
+                </ul>
             <ul id="main" class="inlineblock">
                 <li><a href="userprofile_admin.html">Profile</a></li>
                 <li><a href="users.html">Users</a></li>
