@@ -13,7 +13,7 @@
     <div id="main_content">
         <div id="login">
             <h3 id="formheading">LOGIN</h3>
-            <form onsubmit="tologin()" method="POST">
+            <form>
         <table>
             <tr>
                 <td><label>Username</label></td>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" id="login" value="Login" name="login"></td>
+                <td class="inputfield"><input type="button" onclick="tologin()" id="login" value="Login" name="login"></td>
             </tr>
             <tr>
                 <td></td>
@@ -42,10 +42,8 @@
         var username = document.getElementById("username").value;
         if (username == "admin"){
             window.location.href = "./incidents_admin/list.html";
-            alert('');
         }else{
             window.location.href = "./incidents/list.html";
-            alert('');
         }
     }
 </script>
