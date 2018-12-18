@@ -42,7 +42,7 @@ For installation of this project:  `$ https://github.com/PatrickMugayaJoel/Andel
 
 ## Authors
 
-* **Mugaya Joel Patrick**
+* **Mugaya Joel Patrick** (josean.patrick11@gmail.com)
  
 ## Acknowledgments
 
