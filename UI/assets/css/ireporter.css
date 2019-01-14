@@ -4,10 +4,13 @@
     padding: 0%;
     height: 100%;
     width: 70%;
-    background-color: #fff;
     font-family: arial,sans-serif;
     text-align: center;
     }
+
+body{
+    background-color: #00000005;
+}
     
 #navigation ul li a {
     text-decoration: none;
@@ -18,7 +21,11 @@
 }
 
 #navigation .active {
-    background-color: #0f0ff066;
+    background-color: #0ff08885;
+}
+
+#navigation .active a{
+    color: white;
 }
 
 #navigation #logo img{
@@ -82,7 +89,7 @@ table{
 }
 
 #incident table #footrow{
-    background-color: #0f0e0e99;
+    background-color: #0ff08885;
     color: #fff;
     height: 60px;
 }
@@ -90,7 +97,7 @@ table{
 #incident table th{
     padding: 10px 6px;
     margin: 0px;
-    background-color: #9e9eb133;
+    background-color: #0ff08885;
 }
 
 #main_content .inputfield input,
@@ -177,7 +184,7 @@ footer{
     width: inherit;
     border-style: none;
     padding: 0px 30px;
-    background-color: #9e9eb133;
+    background-color: #0ff08885;
     margin-left: -2.9%;
 }
 
