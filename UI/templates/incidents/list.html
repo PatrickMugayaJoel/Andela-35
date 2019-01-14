@@ -14,21 +14,19 @@
             <button onclick="myFunction()" class="dropbtn">&#9776;</button>
             <div id="mymenu" class="menu-content">
                     <a href="../userprofile.html">Profile</a>
-                    <a href="list.html">Incidents</a>
-                    <a href="incident.html">Incident</a>
-                    <a href="create.html">Add Incident</a>
+                    <a class="active" href="list.html">Incidents</a>
                     <a href="../index.html">Logout</a>
             </div>
         </div>
+
+        <div id='logo'><img src="../../assets/logo.png"></div>
     
                 <ul class="usertype inlineblock">
-                    <li>User</li>
+                    <li>Logged is as: User</li>
                 </ul>
                 <ul id="main" class="inlineblock">
                     <li><a href="../userprofile.html">Profile</a></li>
-                    <li><a href="list.html">Incidents</a></li>
-                    <li><a href="incident.html">Incident</a></li>
-                    <li><a href="create.html">Add Incident</a></li>
+                    <li class="active"><a href="list.html">Incidents</a></li>
                     <li><a href="../index.html">Logout</a></li>
                 </ul>
         </div>
@@ -37,29 +35,28 @@
 
     <div id="main_content">
         <div id="incident">
-            <h3 id="formheading">Incidents</h3>
+            <div>
+                <a href="create.html"  class="pullleft inlineblock formheading">New Incident</a>
+                <h3  class="inlineblock formheading">Incidents</h3>
+            </div>
             <table>
                 <tr>
                     <th>ID</th>
                     <th>Location</th>
                     <th>Type</th>
                     <th>Status</th>
-                    <th>Comment</th>
-                    <th>Images</th>
-                    <th>Videos</th>
                     <th>Created by</th>
                     <th>Created on</th>
+                    <th></th>
                 </tr>
                 <tr>
                     <td>12345</td>
                     <td>12345.56, 54321.123</td>
                     <td>redflag</td>
                     <td>handled</td>
-                    <td>requires daily monitoring</td>
-                    <td>image</td>
-                    <td>video</td>
                     <td>Joel</td>
                     <td>06-11-2000</td>
+                    <td><a href="incident.html">view</a></td>
                 </tr>
             </table>
         </div>
