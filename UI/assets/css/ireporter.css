@@ -1,15 +1,17 @@
 
 #wrapper {
     margin: auto;
-    padding: 0%;
-    height: 100%;
+    padding: 0.2% 3% 60px 3%;
+    height: 89vh;
     width: 70%;
     font-family: arial,sans-serif;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
     }
 
 body{
-    background-color: #00000005;
+    background-image: url("../images/tile.jpg");
 }
     
 #navigation ul li a {
@@ -21,7 +23,7 @@ body{
 }
 
 #navigation .active {
-    background-color: #0ff08885;
+    background-color: #0ff088;
 }
 
 #navigation .active a{
@@ -89,7 +91,7 @@ table{
 }
 
 #incident table #footrow{
-    background-color: #0ff08885;
+    background-color: #0ff088;
     color: #fff;
     height: 60px;
 }
@@ -97,7 +99,7 @@ table{
 #incident table th{
     padding: 10px 6px;
     margin: 0px;
-    background-color: #0ff08885;
+    background-color: #0ff088;
 }
 
 #main_content .inputfield input,
@@ -179,12 +181,12 @@ border-width: 0px;
 
 footer{
     position: fixed;
-    /* bottom:0; */
+    bottom: 0;
     margin-bottom: 10px;
     width: inherit;
     border-style: none;
     padding: 0px 30px;
-    background-color: #0ff08885;
+    background-color: #0ff088;
     margin-left: -2.9%;
 }
 
@@ -304,8 +306,7 @@ hr{
 }
 
 footer{
-    padding: 0px;
-    margin-left: 0%;
+display: none;
 }
 
 }
