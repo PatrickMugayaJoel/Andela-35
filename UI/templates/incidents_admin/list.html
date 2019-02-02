@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I Reporter</title>
-    <link type="text/css" rel="stylesheet" href="../../assets/css/ireporter.css" />
-    <script src="../../assets/js/ireporter.js"></script> 
-
-</head>
-<body>
-<div id="wrapper">
-
-        <div id="navigation">
-
-        <div class="menu">
-            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-            <div id="mymenu" class="menu-content">
-                    <a href="../userprofile_admin.html">Profile</a>
-                    <a href="../users.html">Users</a>
-                    <a class="active" href="list.html">Incidents</a>
-                    <a href="../index.html">Logout</a>
-            </div>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css/ireporter.css"
+    />
+    <script src="../../assets/js/ireporter.js"></script>
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+        <div id="mymenu" class="menu-content">
+          <a href="../userprofile_admin.html">Profile</a>
+          <a href="../users.html">Users</a>
+          <a class="active" href="list.html">Incidents</a>
+          <a href="../index.html">Logout</a>
         </div>
+      </div>
 
-        <div id='logo'><img src="../../assets/images/logo.png"></div>
-    
-                <ul class="usertype inlineblock">
-                    <li>Logged is as: Admin</li>
-                </ul>
-                <ul id="main" class="inlineblock">
-                    <li><a href="../userprofile_admin.html">Profile</a></li>
-                    <li><a href="../users.html">Users</a></li>
-                    <li class="active"><a href="list.html">Incidents</a></li>
-                    <li><a href="../index.html">Logout</a></li>
-                </ul>
-        </div>
+      <div id="logo"><img src="../../assets/images/logo.png" /></div>
+      <ul id="main" class="inlineblock">
+        <li><a href="../userprofile_admin.html">Profile</a></li>
+        <li><a href="../users.html">Users</a></li>
+        <li class="active"><a href="list.html">Incidents</a></li>
+        <li><a href="../index.html">Logout</a></li>
+      </ul>
+      <ul class="usertype inlineblock">
+        <li>Logged in as: Admin</li>
+      </ul>
+    </div>
 
-    <hr>
-
-    <div id="main_content">
+    <div id="wrapper">
+      <div id="main_content">
         <div id="incident">
-            <div>
-                <a href="create.html"  class="pullleft inlineblock formheading">New Incident</a>
-                <h3  class="inlineblock formheading">Incidents</h3>
-            </div>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Location</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Created by</th>
-                    <th>Created on</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>12345</td>
-                    <td>12345.56, 54321.123</td>
-                    <td>redflag</td>
-                    <td>handled</td>
-                    <td>Joel</td>
-                    <td>06-11-2000</td>
-                    <td><a href="incident.html">view</a></td>
-                </tr>
-            </table>
+          <div id="incidentheader">
+            <h3 class="inlineblock">Incidents</h3>
+          </div>
+          <a href="create.html" class="pullleft inlineblock">New Incident</a>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Location</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Created by</th>
+              <th>Created on</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>12345</td>
+              <td>12345.56, 54321.123</td>
+              <td>redflag</td>
+              <td>handled</td>
+              <td>Joel</td>
+              <td>06-11-2000</td>
+              <td><a href="incident.html">view</a></td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
 
     <footer>
-            <small>
-                <div class="pullleft">
-                    Andela
-                </div>
-                <div class="pullright">
-                    copy right Josean 2019.
-                </div>
-            </small>
-        </footer>
-    
-</div>
-</body>
+      <small>
+        <div class="pullleft">
+          Andela
+        </div>
+        <div class="pullright">
+          copy right Josean 2019.
+        </div>
+      </small>
+    </footer>
+  </body>
 </html>

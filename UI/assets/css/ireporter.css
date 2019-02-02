@@ -1,312 +1,315 @@
-
 #wrapper {
-    margin: auto;
-    padding: 0.2% 3% 60px 3%;
-    height: 89vh;
-    width: 70%;
-    font-family: arial,sans-serif;
-    text-align: center;
-    background-color: white;
-    border-radius: 5px;
-    }
-
-body{
-    background-image: url("../images/tile.jpg");
+  margin: 60px 0px 10px 0px;
+  padding: 2%;
+  height: 73vh;
+  width: 95.5%;
+  font-family: arial, sans-serif;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  min-width: 300px;
 }
-    
+
+body {
+  background-color: #0c0c0c33;
+}
+
 #navigation ul li a {
-    text-decoration: none;
-}
-
-#navigation ul li {
-    padding: 17px 0px;
+  text-decoration: none;
 }
 
 #navigation .active {
-    background-color: #0ff088;
+  background-color: #66686c66;
 }
 
-#navigation .active a{
-    color: white;
+#navigation .active a {
+  color: white;
 }
 
-#navigation #logo img{
-    width: 100px;
-    float: left;
-}
-    
-.inlineblock{
-    display: inline-block;
+#navigation #logo img {
+  width: 100px;
+  float: left;
 }
 
-#main a{
-    color: #6c6666b3;
+.inlineblock {
+  display: inline-block;
 }
 
-#navigation{
-    margin-top: 5%;
+#main a {
+  color: #6c6666b3;
+}
+
+#navigation {
+  margin: 0%;
+  position: fixed;
+  background-color: #0ff088;
+  width: 94%;
+  padding: 2px 2%;
+  top: 0;
+  min-width: 300px;
 }
 
 #navigation ul li {
-    list-style: none;
-    display: inline;
-    margin: 0px;
+  list-style: none;
+  display: inline;
+  margin: 0px;
+  padding: 17px 0px;
 }
 
-hr{
-    color: #eae3e333;
+hr {
+  color: #eae3e333;
 }
 
-form table{
-    margin: 10px auto 20px auto;
-    width: 80%;
+form table {
+  margin: 10px auto 20px auto;
+  width: 80%;
 }
 
-table{
-    text-align: left;
-
+table {
+  text-align: left;
 }
 
-#incident table{
-    width: 100%;
-    padding: 10px;
-    margin: 20px 0px;
+#incident table {
+  width: 100%;
+  padding: 10px 0px;
+  margin: 0px;
 }
 
-#incident table td{
-    padding: 5px 5px;
-    margin: 0px;
+#incident table td {
+  padding: 5px 5px;
+  margin: 0px;
 }
 
-#incident table td div, #incident table td label{
-    display: inline-block;
+#incident table td div,
+#incident table td label {
+  display: inline-block;
 }
 
-#incident table td span{
-    margin: 5%;
+#incident table td span {
+  margin: 5%;
 }
 
-#incident table td small b{
-    margin: 5px;
+#incident table td small b {
+  margin: 5px;
 }
 
-#incident table #footrow{
-    background-color: #0ff088;
-    color: #fff;
-    height: 60px;
+#incident table #footrow {
+  background-color: #0ff088;
+  color: #fff;
+  height: 60px;
 }
 
-#incident table th{
-    padding: 10px 6px;
-    margin: 0px;
-    background-color: #0ff088;
+#incident table th {
+  padding: 10px 6px;
+  margin: 0px;
+  background-color: #0ff088;
+}
+
+#incidentheader h3 {
+  margin: 10px 10px;
 }
 
 #main_content .inputfield input,
 #main_content .doublefield input,
-#main_content .inputfield textarea
-{
-    border-radius: 3px;
-    border-color: #86868733;
-    border-style: solid;
-    border-width: 1px;
-    padding: 2px 10px;
-    box-shadow: 0px 2px 1px #47a2c61a;
+#main_content .inputfield textarea {
+  border-radius: 3px;
+  border-color: #86868733;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px 10px;
+  box-shadow: 0px 2px 1px #47a2c61a;
 }
 
-textarea
-{
-    height: 70px;
+textarea {
+  height: 70px;
 }
 
-#main_content .inputfield input[type=text],
-#main_content .inputfield input[type=password],
-#main_content .inputfield input[type=email],
-#main_content .inputfield textarea
-{
-    width: 96%;
+#main_content .inputfield input[type="text"],
+#main_content .inputfield input[type="password"],
+#main_content .inputfield input[type="email"],
+#main_content .inputfield textarea {
+  width: 96%;
 }
 
-#main_content .doublefield input
-{
-    height: 35px;
-    width: 44.6%;
+#main_content .doublefield input {
+  height: 35px;
+  width: 44.6%;
 }
 
-.inputfield{
-    width: 75%;
+.inputfield {
+  width: 75%;
 }
 
-.inputfield input
-{
-    height: 35px;
-    display: inline-block;
+.inputfield input {
+  height: 35px;
+  display: inline-block;
 }
 
-.formheading{
-margin-top: 10%;
+.inputfield input[type="submit"],
+.inputfield input[type="button"] {
+  margin: 0px;
+  width: 100%;
+  color: #6c6666b3;
+  border-width: 0px;
 }
 
-.inputfield input[type=submit],
-.inputfield input[type=button]
-{
-margin: 0px;
-width: 100%;
-color: #6c6666b3;
-border-width: 0px;
-}
-
-#main a
-{
-    padding: 17px;
-    margin: 0px;
+#main a {
+  padding: 17px;
+  margin: 0px;
 }
 
 #navigation #main a:hover,
-#navigation #main a:focus
-{
-    background-color: #b7b7c34d;
-    color: black;
+#navigation #main a:focus {
+  background-color: #b7b7c34d;
+  color: black;
 }
 
-.inputfield input[type=submit]:hover,
-.inputfield input[type=submit]:focus,
-.inputfield input[type=button]:hover,
-.inputfield input[type=button]:focus
- {
-    color: black;
-    background-color: #b7b7c34d;
-    cursor: pointer;
-  }
-
-footer{
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 10px;
-    width: inherit;
-    border-style: none;
-    padding: 0px 30px;
-    background-color: #0ff088;
-    margin-left: -2.9%;
+.inputfield input[type="submit"]:hover,
+.inputfield input[type="submit"]:focus,
+.inputfield input[type="button"]:hover,
+.inputfield input[type="button"]:focus {
+  color: black;
+  background-color: #b7b7c34d;
+  cursor: pointer;
 }
 
-footer div{
-    display: inline-block;
-    padding: 20px 10px;
+footer {
+  position: absolute;
+  margin: 0px auto 10px auto;
+  width: 90%;
+  min-width: 300px;
+  border-style: none;
+  padding: 0% 4%;
+  background-color: #0ff088;
 }
 
-.pullright{
-    float: right;
+footer div {
+  display: inline-block;
+  padding: 20px 10px;
 }
 
-.pullleft{
-    float: left;
+.pullright {
+  float: right;
 }
 
-.inputfield div{
-    margin-top: 10px;
+.pullleft {
+  float: left;
 }
 
-.usertype{
-    float: right;
+.inputfield div {
+  margin-top: 10px;
+}
+
+.usertype {
+  float: right;
 }
 
 /* ------------------ small device menu ------------------------- */
 
-
 .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 15px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .menu {
-      display: none;
-  }
-  
-  .menu-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .menu-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .menu a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
-
-  /* --------------------------------------------------------------- */
-
-@media only screen and (max-width: 1101px){
-
-form label{
-    display: none;
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.inputfield{
-    width: 100%;
-}
-
-#main_content .doublefield input
-{
-    width: 96%;
-}
-
-#incident
-{
-    overflow-x: scroll;
-    width: 100%;
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
 }
 
 .menu {
+  display: none;
+}
+
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menu-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/* --------------------------------------------------------------- */
+
+@media all and (max-width: 750px) {
+  form label {
+    display: none;
+  }
+
+  .inputfield {
+    width: 100%;
+  }
+
+  #main_content .doublefield input {
+    width: 96%;
+  }
+
+  #incident {
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  .menu {
     position: absolute;
-      left: 0;
-      top: 0;
-      margin: 15px;
-      display: block;
-}
+    left: 4%;
+    top: 1%;
+    margin: 15px;
+    display: block;
+  }
 
-#main{
+  #main {
     display: none;
-}
+  }
 
-#wrapper{
-    width: 90%;
-    zoom: 3;
-}
+  #wrapper {
+    padding: 1%;
+    width: 98%;
+    margin: 90px 0px 10px 0px;
+  }
 
-hr{
+  hr {
     display: none;
-}
+  }
 
-.usertype{
+  .usertype {
     float: none;
     padding: 0px;
-}
+    margin: 0px;
+  }
 
-#navigation #logo img{
+  #navigation #logo img {
     float: none;
-}
+  }
 
-footer{
-display: none;
-}
+  #navigation {
+    text-align: center;
+  }
 
+  #navigation ul li {
+    padding: 5px 0px;
+  }
+
+  footer {
+    font-size: 20px;
+  }
 }
