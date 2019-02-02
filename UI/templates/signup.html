@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>I Reporter</title>
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
-</head>
-<body>
-<div id="wrapper">
+  </head>
+  <body>
+    <div id="welcome_nav"></div>
 
     <div id="navigation">
+      <div id="logo"><h2>Welcome to Ireporter</h2></div>
     </div>
 
-    <hr>
-
-    <div id="main_content">
-        <div id="signup">
-            <h3 id="formheading">Signup</h3>
-            <form action="userprofile.html" method="POST">
-        <table>
-            <tr>
+    <div id="wrapper">
+      <div id="main_content">
+        <div>
+          <div id="incidentheader"><h3>Signup</h3></div>
+          <form action="userprofile.html" method="POST">
+            <table>
+              <tr>
                 <td><label>Username</label></td>
-                <td class="inputfield"><input required type="text" name="username" placeholder="Username"></td>
-            </tr>
-            <tr>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td><label>Password</label></td>
-                <td class="inputfield"><input required type="password" name="password" placeholder="Password"></td>
-            </tr>
-            <tr>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td><label>Email</label></td>
-                <td class="inputfield"><input required type="email" name="email" placeholder="email"></td>
-            </tr>
-            <tr>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" value="register" name="login"></td>
-            </tr>
-            <tr>
+                <td class="inputfield">
+                  <input type="submit" value="register" name="login" />
+                </td>
+              </tr>
+              <tr>
                 <td></td>
-                <td class="inputfield"><div>Or <a href="index.html">Login</a></div></td>
-            </tr>
-        </table>
-            </form>
+                <td class="inputfield">
+                  <div>Or <a href="index.html">Login</a></div>
+                </td>
+              </tr>
+            </table>
+          </form>
         </div>
+      </div>
     </div>
 
-</div>
-</body>
+    <footer>
+      <small>
+        <div class="pullleft">
+          Andela
+        </div>
+        <div class="pullright">
+          copy right Josean 2019.
+        </div>
+      </small>
+    </footer>
+  </body>
 </html>

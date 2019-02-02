@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
 
     <link
@@ -82,40 +84,39 @@
         });
     </script>
   </head>
+
   <body>
-    <div id="wrapper">
-      <div id="navigation">
-        <div class="menu">
-          <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-          <div id="mymenu" class="menu-content">
-            <a href="../userprofile.html">Profile</a>
-            <a class="active" href="list.html">Incidents</a>
-            <a href="../index.html">Logout</a>
-          </div>
+    <div id="navigation">
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+        <div id="mymenu" class="menu-content">
+          <a href="../userprofile.html">Profile</a>
+          <a class="active" href="list.html">Incidents</a>
+          <a href="../index.html">Logout</a>
         </div>
-
-        <div id="logo"><img src="../../assets/images/logo.png" /></div>
-
-        <ul class="usertype inlineblock">
-          <li>Logged is as: User</li>
-        </ul>
-        <ul id="main" class="inlineblock">
-          <li><a href="../userprofile.html">Profile</a></li>
-          <li class="active"><a href="list.html">Incidents</a></li>
-          <li><a href="../index.html">Logout</a></li>
-        </ul>
       </div>
 
-      <hr />
+      <div id="logo"><img src="../../assets/images/logo.png" /></div>
 
+      <ul class="usertype inlineblock">
+        <li>Logged in as: User</li>
+      </ul>
+      <ul id="main" class="inlineblock">
+        <li><a href="../userprofile.html">Profile</a></li>
+        <li class="active"><a href="list.html">Incidents</a></li>
+        <li><a href="../index.html">Logout</a></li>
+      </ul>
+    </div>
+
+    <div id="wrapper">
       <div id="main_content">
         <div id="incident">
-          <div>
-            <a href="create.html" class="pullleft inlineblock formheading"
-              >New Incident</a
-            >
-            <h3 class="inlineblock formheading">Incidents</h3>
+          <div id="incidentheader">
+            <h3 class="inlineblock">Incidents</h3>
           </div>
+
+          <a href="create.html" class="pullleft inlineblock">New Incident</a>
+
           <table id="tableRows">
             <tr>
               <th>ID</th>
@@ -138,13 +139,13 @@
           </table>
         </div>
       </div>
-
-      <footer>
-        <small>
-          <div class="pullleft">Andela</div>
-          <div class="pullright">copy right Josean 2019.</div>
-        </small>
-      </footer>
     </div>
+
+    <footer>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
   </body>
 </html>
