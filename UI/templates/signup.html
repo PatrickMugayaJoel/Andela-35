@@ -27,8 +27,30 @@
                   <input
                     required
                     type="text"
-                    name="username"
+                    id="username"
                     placeholder="Username"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Firstname</label></td>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="text"
+                    id="firstname"
+                    placeholder="Firstname"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Lastname</label></td>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="text"
+                    id="lastname"
+                    placeholder="Lastname"
                   />
                 </td>
               </tr>
@@ -38,26 +60,38 @@
                   <input
                     required
                     type="password"
-                    name="password"
+                    id="password"
                     placeholder="Password"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Phone</label></td>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="number"
+                    id="phonenumber"
+                    placeholder="Phone number"
                   />
                 </td>
               </tr>
               <tr>
                 <td><label>Email</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                  />
+                  <input required type="email" id="email" placeholder="email" />
                 </td>
               </tr>
               <tr>
                 <td></td>
                 <td class="inputfield">
-                  <input type="submit" value="register" name="login" />
+                  <input
+                    type="button"
+                    onclick="toSignup()"
+                    id="login"
+                    value="register"
+                    name="signup"
+                  />
                 </td>
               </tr>
               <tr>
@@ -82,5 +116,21 @@
         </div>
       </small>
     </footer>
+
+    <script>
+      toSignup = () => {
+        let obj = {};
+        obj.username = document.getElementById("username").value;
+        obj.password = document.getElementById("password").value;
+        obj.email = document.getElementById("email").value;
+        obj.lastname = document.getElementById("lastname").value;
+        obj.firstname = document.getElementById("firstname").value;
+        obj.phonenumber = parseInt(
+          document.getElementById("phonenumber").value
+        );
+
+        signup(obj);
+      };
+    </script>
   </body>
 </html>
