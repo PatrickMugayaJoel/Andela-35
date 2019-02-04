@@ -12,101 +12,13 @@
       href="../../assets/css/ireporter.css"
     />
 
+    <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
-
-    <script type="text/javascript">
-      // pull incidents from Api
-
-      var myHeaders = new Headers();
-      myHeaders.append("accept", "application/json");
-
-      var myInit = {
-        method: "GET",
-        headers: myHeaders,
-        mode: "cors",
-        cache: "default"
-      };
-
-      var myRequest = new Request(
-        "http://127.0.0.1:5000/ireporter/api/v2/red-flags",
-        myInit
-      );
-
-      fetch(myRequest)
-        .then(function(response) {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("error request has status: " + response.status);
-          }
-        })
-        .then(function(myJson) {
-          var table_rows = `<tr>
-                    <th>ID</th>
-                    <th>Location</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Created by</th>
-                    <th>Created on</th>
-                    <th></th>
-                </tr>`;
-
-          data = myJson.data;
-          for (var i = 0; i < data.length; i++) {
-            table_rows +=
-              `<tr>
-                    <td>` +
-              data[i].flag_id +
-              `</td>
-                    <td>` +
-              data[i].location +
-              `</td>
-                    <td>` +
-              data[i].type +
-              `</td>
-                    <td>` +
-              data[i].status +
-              `</td>
-                    <td>` +
-              data[i].createdby +
-              `</td>
-                    <td>` +
-              data[i].createdon +
-              `</td>
-                    <td><a href="incident.html">view</a></td>
-                </tr>`;
-          }
-          const element = document.getElementById("tableRows");
-          element.outerHTML = "<table>" + table_rows + "</table>";
-        })
-        .catch(function(err) {
-          console.log("Fetch Error :-S", err);
-        });
-    </script>
+    <script src="../../assets/js/fetch.js"></script>
   </head>
 
   <body>
-    <div id="navigation">
-      <div class="menu">
-        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-        <div id="mymenu" class="menu-content">
-          <a href="../userprofile.html">Profile</a>
-          <a class="active" href="list.html">Incidents</a>
-          <a href="../index.html">Logout</a>
-        </div>
-      </div>
-
-      <div id="logo"><img src="../../assets/images/logo.png" /></div>
-
-      <ul class="usertype inlineblock">
-        <li>Logged in as: User</li>
-      </ul>
-      <ul id="main" class="inlineblock">
-        <li><a href="../userprofile.html">Profile</a></li>
-        <li class="active"><a href="list.html">Incidents</a></li>
-        <li><a href="../index.html">Logout</a></li>
-      </ul>
-    </div>
+    <div id="navigation"></div>
 
     <div id="wrapper">
       <div id="main_content">
@@ -117,26 +29,7 @@
 
           <a href="create.html" class="pullleft inlineblock">New Incident</a>
 
-          <table id="tableRows">
-            <tr>
-              <th>ID</th>
-              <th>Location</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Created by</th>
-              <th>Created on</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>12345</td>
-              <td>12345.56, 54321.123</td>
-              <td>redflag</td>
-              <td>handled</td>
-              <td>Joel</td>
-              <td>06-11-2000</td>
-              <td><a href="incident.html">view</a></td>
-            </tr>
-          </table>
+          <table id="tableRows"></table>
         </div>
       </div>
     </div>
@@ -147,5 +40,20 @@
         <div class="pullright">copy right Josean 2019.</div>
       </small>
     </footer>
+
+    <script type="text/javascript">
+      let navigation = document.getElementById("navigation");
+      if (localStorage.getItem("currentUserIsAdmin") == "true") {
+        navigation.innerHTML = adminNav;
+      } else {
+        navigation.innerHTML = userNav;
+      }
+
+      getRedFlags();
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+    </script>
   </body>
 </html>
