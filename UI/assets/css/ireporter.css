@@ -22,6 +22,7 @@
 #dialog-content {
   width: 50%;
   min-width: 300px;
+  padding: 0% 1%;
   margin: 0px auto;
   background: #f5313180;
   border: 1px solid #ccc;
@@ -29,8 +30,13 @@
 }
 
 #dialog-text {
+  font-size: 14px;
   margin: 1.5em 0;
   text-transform: uppercase;
+}
+
+#dialog-content ul {
+  text-align: left;
 }
 
 body {
@@ -140,6 +146,11 @@ table {
   margin: 10px 10px;
 }
 
+#main_content {
+  overflow-y: scroll;
+  height: inherit;
+}
+
 #main_content .inputfield input,
 #main_content .doublefield input,
 #main_content .inputfield textarea {
@@ -158,6 +169,7 @@ textarea {
 #main_content .inputfield input[type="text"],
 #main_content .inputfield input[type="password"],
 #main_content .inputfield input[type="email"],
+#main_content .inputfield input[type="number"],
 #main_content .inputfield textarea {
   width: 96%;
 }
