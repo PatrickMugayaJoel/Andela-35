@@ -12,6 +12,13 @@
       href="../../assets/css/ireporter.css"
     />
 
+    <script type="text/javascript">
+      if (localStorage.getItem("currentUserId") == "null") {
+        window.location.href = "../index.html";
+        localStorage.setItem("userMassage", "Please login.");
+      }
+    </script>
+
     <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
     <script src="../../assets/js/fetch.js"></script>
