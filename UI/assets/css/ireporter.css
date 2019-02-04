@@ -10,6 +10,29 @@
   min-width: 300px;
 }
 
+/*= Dialog */
+
+#dialog {
+  width: 100%;
+  text-align: center;
+  transform: scale(0);
+  transition: all 400ms ease-in;
+}
+
+#dialog-content {
+  width: 50%;
+  min-width: 300px;
+  margin: 0px auto;
+  background: #f5313180;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#dialog-text {
+  margin: 1.5em 0;
+  text-transform: uppercase;
+}
+
 body {
   background-color: black;
 }
