@@ -80,7 +80,12 @@
       </small>
     </footer>
 
-    <script>
+    <script type="text/javascript">
+      if (localStorage.getItem("userMassage") != "null") {
+        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        localStorage.setItem("userMassage", null);
+      }
+
       tologin = () => {
         let obj = {};
         obj.username = document.getElementById("username").value;
