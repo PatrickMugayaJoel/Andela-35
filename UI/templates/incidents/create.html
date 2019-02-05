@@ -5,63 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>I Reporter</title>
+
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
     <link
       type="text/css"
       rel="stylesheet"
       href="../../assets/css/ireporter.css"
     />
+
+    <script type="text/javascript">
+      if (
+        localStorage.getItem("currentUserId") == "null" ||
+        localStorage.getItem("currentUserId") == null
+      ) {
+        localStorage.setItem("userMassage", "Please login.");
+        window.location.href = "../index.html";
+      }
+    </script>
+
+    <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
+    <script src="../../assets/js/fetch.js"></script>
   </head>
   <body>
-    <div id="navigation">
-      <div class="menu">
-        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-        <div id="mymenu" class="menu-content">
-          <a href="../userprofile.html">Profile</a>
-          <a class="active" href="list.html">Incidents</a>
-          <a href="../index.html">Logout</a>
-        </div>
-      </div>
-
-      <div id="logo"><img src="../../assets/images/logo.png" /></div>
-
-      <ul class="usertype inlineblock">
-        <li>Logged is as: User</li>
-      </ul>
-      <ul id="main" class="inlineblock">
-        <li><a href="../userprofile.html">Profile</a></li>
-        <li class="active"><a href="list.html">Incidents</a></li>
-        <li><a href="../index.html">Logout</a></li>
-      </ul>
-    </div>
+    <div id="navigation"></div>
 
     <div id="wrapper">
       <div id="main_content">
+        <div id="dialog"></div>
+
         <div>
-          <div id="incidentheader"><h3>Report Incident</h3></div>
+          <div id="incidentheader"><h3>Report an Incident</h3></div>
           <form action="list.html" method="POST">
             <table>
               <tr>
+                <td><label>Title</label></td>
+                <td class="inputfield">
+                  <input required type="text" id="title" placeholder="Title" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Type</label></td>
+                <td class="inputfield">
+                  <select required type="text" id="type">
+                    <option value="interventions">Intervention</option>
+                    <option value="red-flags">Red flag</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
                 <td><label>Description</label></td>
                 <td class="inputfield">
-                  <textarea required name="description">
+                  <textarea required id="description">
 Add a description</textarea
                   >
                 </td>
               </tr>
               <tr>
-                <td><label>Geolocation </label></td>
+                <td><label>Geo-location </label></td>
                 <td class="doublefield">
                   <input
                     required
-                    type="text"
-                    name="latitude"
+                    type="number"
+                    id="latitude"
                     placeholder="latitude"
                   />
                   <input
                     required
-                    type="text"
-                    name="longitude"
+                    type="number"
+                    id="longitude"
                     placeholder="longitude"
                   />
                 </td>
@@ -69,7 +81,12 @@ Add a description</textarea
               <tr>
                 <td></td>
                 <td class="inputfield">
-                  <input type="submit" value="Report" name="report" />
+                  <input
+                    type="button"
+                    onclick="toCreateIncident()"
+                    id="report"
+                    value="Create Incident"
+                  />
                 </td>
               </tr>
             </table>
@@ -84,5 +101,35 @@ Add a description</textarea
         <div class="pullright">copy right Josean 2019.</div>
       </small>
     </footer>
+
+    <script type="text/javascript">
+      let navigation = document.getElementById("navigation");
+      if (localStorage.getItem("currentUserIsAdmin") == "true") {
+        navigation.innerHTML = adminNav;
+      } else {
+        navigation.innerHTML = userNav;
+      }
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+
+      toCreateIncident = () => {
+        let obj = {};
+        let latitude = document.getElementById("latitude").value;
+        let longitude = document.getElementById("longitude").value;
+
+        obj.title = document.getElementById("title").value;
+        obj.type = document.getElementById("type").value;
+        obj.comment = document.getElementById("description").value;
+        obj.location = latitude + ", " + longitude;
+
+        if (latitude.length < 3 || longitude.length < 3) {
+          console.log(latitude);
+          console.log(longitude);
+          userMessage("Location can not be empty!", "#f5313180");
+        } else createIncident(obj);
+      };
+    </script>
   </body>
 </html>
