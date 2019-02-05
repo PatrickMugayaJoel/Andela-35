@@ -30,7 +30,7 @@ const fomartErrorMessage = message => {
 const getRedFlags = () => {
   // Add redflags from Api to web page
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/red-flags")
+  return fetch("https://bootcamp15app.herokuapp.com/ireporter/api/v2/red-flags")
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
@@ -80,7 +80,10 @@ const login = body => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/auth/login", options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/login",
+    options
+  )
     .then(response => response.json())
     .then(data => {
       if (data.status == 200) {
@@ -117,7 +120,10 @@ const logout = () => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/auth/logout", options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/logout",
+    options
+  )
     .then(response => response.json())
     .then(data => {
       if (data.message) {
@@ -149,7 +155,10 @@ const signup = body => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/auth/signup", options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/signup",
+    options
+  )
     .then(response => response.json())
     .then(data => {
       if (data.status == 201) {
@@ -182,7 +191,10 @@ const createIncident = body => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/" + body.type, options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/" + body.type,
+    options
+  )
     .then(response => response.json())
     .then(data => {
       if (data.status == 201) {
