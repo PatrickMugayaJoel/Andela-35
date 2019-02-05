@@ -1,81 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
-    <link type="text/css" rel="stylesheet" href="../../assets/css/ireporter.css" />
-    <script src="../../assets/js/ireporter.js"></script> 
-</head>
-<body>
-<div id="wrapper">
-
-        <div id="navigation">
-            
-        <div class="menu">
-            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-            <div id="mymenu" class="menu-content">
-                    <a href="../userprofile.html">Profile</a>
-                    <a class="active" href="list.html">Incidents</a>
-                    <a href="../index.html">Logout</a>
-            </div>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css/ireporter.css"
+    />
+    <script src="../../assets/js/ireporter.js"></script>
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+        <div id="mymenu" class="menu-content">
+          <a href="../userprofile.html">Profile</a>
+          <a class="active" href="list.html">Incidents</a>
+          <a href="../index.html">Logout</a>
         </div>
+      </div>
 
-        <div id='logo'><img src="../../assets/images/logo.png"></div>
-    
-                <ul class="usertype inlineblock">
-                    <li>Logged is as: User</li>
-                </ul>
-                <ul id="main" class="inlineblock">
-                    <li><a href="../userprofile.html">Profile</a></li>
-                    <li class="active"><a href="list.html">Incidents</a></li>
-                    <li><a href="../index.html">Logout</a></li>
-                </ul>
-        </div>
+      <div id="logo"><img src="../../assets/images/logo.png" /></div>
 
-    <hr>
+      <ul class="usertype inlineblock">
+        <li>Logged is as: User</li>
+      </ul>
+      <ul id="main" class="inlineblock">
+        <li><a href="../userprofile.html">Profile</a></li>
+        <li class="active"><a href="list.html">Incidents</a></li>
+        <li><a href="../index.html">Logout</a></li>
+      </ul>
+    </div>
 
-    <div id="main_content">
-        <div id="flag">
-            <h3 id="formheading">Intervention</h3>
-            <form action="list.html" method="POST">
-        <table>
-                <tr>
+    <div id="wrapper">
+      <div id="main_content">
+        <div>
+          <div id="incidentheader"><h3>Intervention</h3></div>
+          <form action="list.html" method="POST">
+            <table>
+              <tr>
                 <td><label>Incident</label></td>
                 <td class="inputfield">
-                    <input required type="text" name="incident" placeholder="incident id"></td>
-                </tr>
-            <tr>
+                  <input
+                    required
+                    type="text"
+                    name="incident"
+                    placeholder="incident id"
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td><label>Description</label></td>
-                <td class="inputfield"><textarea required name="description">
-
-                </textarea></td>
-            </tr>
-            <tr>
+                <td class="inputfield">
+                  <textarea required name="description"> </textarea>
+                </td>
+              </tr>
+              <tr>
                 <td><label>Geolocation </label></td>
                 <td class="doublefield">
-                    <input required type="text" name="latitude" placeholder="latitude">
-                    <input required type="text" name="longitude" placeholder="longitude">
+                  <input
+                    required
+                    type="text"
+                    name="latitude"
+                    placeholder="latitude"
+                  />
+                  <input
+                    required
+                    type="text"
+                    name="longitude"
+                    placeholder="longitude"
+                  />
                 </td>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td></td>
-                <td class="inputfield"><input type="submit" value="intervene" name="report"></td>
-            </tr>
-        </table>
-            </form>
+                <td class="inputfield">
+                  <input type="submit" value="intervene" name="report" />
+                </td>
+              </tr>
+            </table>
+          </form>
         </div>
+      </div>
     </div>
 
     <footer>
-            <small>
-                <div class="pullleft">
-                    Andela
-                </div>
-                <div class="pullright">
-                    copy right Josean 2019.
-                </div>
-            </small>
-        </footer>
-    
-</div>
-</body>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
+  </body>
 </html>

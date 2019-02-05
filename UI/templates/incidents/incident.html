@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
     <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
-    <link type="text/css" rel="stylesheet" href="../../assets/css/ireporter.css" />
-    <script src="../../assets/js/ireporter.js"></script> 
-</head>
-<body>
-<div id="wrapper">
-
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css/ireporter.css"
+    />
+    <script src="../../assets/js/ireporter.js"></script>
+  </head>
+  <body>
     <div id="navigation">
-        
-        <div class="menu">
-            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
         <div id="mymenu" class="menu-content">
-                <a href="../userprofile.html">Profile</a>
-                <a class="active" href="list.html">Incidents</a>
-                <a href="../index.html">Logout</a>
+          <a href="../userprofile.html">Profile</a>
+          <a class="active" href="list.html">Incidents</a>
+          <a href="../index.html">Logout</a>
         </div>
+      </div>
+
+      <div id="logo"><img src="../../assets/images/logo.png" /></div>
+
+      <ul class="usertype inlineblock">
+        <li>Logged is as: User</li>
+      </ul>
+      <ul id="main" class="inlineblock">
+        <li><a href="../userprofile.html">Profile</a></li>
+        <li class="active"><a href="list.html">Incidents</a></li>
+        <li><a href="../index.html">Logout</a></li>
+      </ul>
     </div>
 
-    <div id='logo'><img src="../../assets/images/logo.png"></div>
-
-            <ul class="usertype inlineblock">
-                <li>Logged is as: User</li>
-            </ul>
-            <ul id="main" class="inlineblock">
-                <li><a href="../userprofile.html">Profile</a></li>
-                <li class="active"><a href="list.html">Incidents</a></li>
-                <li><a href="../index.html">Logout</a></li>
-            </ul>
-    </div>
-
-    <hr>
-
-    <div id="main_content">
+    <div id="wrapper">
+      <div id="main_content">
         <div id="incident">
-            <div>
-                <h3  class="formheading">Incident #12345 (Red Flag)</h3>
+          <div>
+            <div id="incidentheader"><h3>Incident #12345 (Red Flag)</h3></div>
             <table>
-                <tr>
-                    <td>Description</td>
-                    <td>This is the description.</td>
-                </tr>
-                <tr id="footrow">
-                    <td colspan="2">
-                        <small>
-                            <span><b>status:</b><div>managed</div></span>
-                            <span><b>codes:</b><div>12345.56, 54321.123</div></span>
-                            <span><b>by:</b><div>Josean</div></span>
-                            <span><b>on:</b><div>06-11-2000</div></span>
-                        </small>
-                    </td>
-                </tr>
+              <tr>
+                <td>Description</td>
+                <td>This is the description.</td>
+              </tr>
+              <tr id="footrow">
+                <td colspan="2">
+                  <small>
+                    <span
+                      ><b>status:</b>
+                      <div>managed</div></span
+                    >
+                    <span
+                      ><b>codes:</b>
+                      <div>12345.56, 54321.123</div></span
+                    >
+                    <span
+                      ><b>by:</b>
+                      <div>Josean</div></span
+                    >
+                    <span
+                      ><b>on:</b>
+                      <div>06-11-2000</div></span
+                    >
+                  </small>
+                </td>
+              </tr>
             </table>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
     <footer>
-            <small>
-                <div class="pullleft">
-                    Andela
-                </div>
-                <div class="pullright">
-                    copy right Josean 2019.
-                </div>
-            </small>
-        </footer>
-    
-</div>
-</body>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
+  </body>
 </html>
