@@ -4,7 +4,7 @@ const userNav = `
   <div id="mymenu" class="menu-content">
     <a href="../userprofile.html">Profile</a>
     <a class="active" href="list.html">Incidents</a>
-    <a onclick="logout()">Logout</a>
+    <a onclick="logout()"><i class="fas fa-user"></i> Logout</a>
   </div>
 </div>
 
@@ -13,7 +13,7 @@ const userNav = `
 <ul id="main" class="inlineblock">
   <li><a href="../userprofile.html">Profile</a></li>
   <li class="active"><a href="list.html">Incidents</a></li>
-  <li><a onclick="logout()">Logout</a></li>
+  <li><a onclick="logout()"><i class="fas fa-user"></i> Logout</a></li>
 </ul>
 
 <ul class="usertype inlineblock">
