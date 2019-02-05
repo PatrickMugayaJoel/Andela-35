@@ -6,16 +6,25 @@
 
     <title>I Reporter</title>
 
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
     <link
       type="text/css"
       rel="stylesheet"
       href="../../assets/css/ireporter.css"
     />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css//font/css/fontawesome.css"
+    />
 
     <script type="text/javascript">
-      if (localStorage.getItem("currentUserId") == "null") {
-        window.location.href = "../index.html";
+      if (
+        localStorage.getItem("currentUserId") == "null" ||
+        localStorage.getItem("currentUserId") == null
+      ) {
         localStorage.setItem("userMassage", "Please login.");
+        window.location.href = "../index.html";
       }
     </script>
 
@@ -34,7 +43,7 @@
             <h3 class="inlineblock">Incidents</h3>
           </div>
 
-          <a href="create.html" class="pullleft inlineblock">New Incident</a>
+          <a href="create.html" class="pullleft inlineblock">Add Incident</a>
 
           <table id="tableRows"></table>
         </div>

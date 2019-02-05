@@ -139,7 +139,7 @@ const logout = () => {
 };
 
 const signup = body => {
-  // post login
+  // post user
 
   const options = {
     method: "POST",
@@ -158,6 +158,38 @@ const signup = body => {
           "Account successfully created. Please login."
         );
         window.location.href = "index.html";
+      } else {
+        userMessage(data.error, "#f5313180");
+      }
+    })
+    .catch(err => {
+      console.log("Fetch Error: ", err);
+      userMessage(err, "#f5313180");
+    });
+};
+
+const createIncident = body => {
+  // post incident
+
+  console.log(body);
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: new Headers({
+      "content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("currentUserToken")
+    })
+  };
+
+  return fetch("http://127.0.0.1:5000/ireporter/api/v2/" + body.type, options)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status == 201) {
+        console.log(data.data[0].message);
+        // localStorage.setItem(
+        //   "userMassage", data.message);
+        // window.location.href = "incident.html";
       } else {
         userMessage(data.error, "#f5313180");
       }
