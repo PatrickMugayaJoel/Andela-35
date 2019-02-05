@@ -34,34 +34,45 @@ const getRedFlags = () => {
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
-                    <th>ID</th>
+                    <th>Title</th>
                     <th>Location</th>
                     <th>Type</th>
                     <th>Status</th>
                     <th>Created by</th>
                     <th>Created on</th>
-                    <th></th>
                 </tr>`;
 
-      let data = jsn.data;
-      for (let i = 0; i < data.length; i++) {
+      if (jsn.error) {
         table_rows +=
-          "<tr><td>" +
-          data[i].flag_id +
-          "</td><td>" +
-          data[i].location +
-          "</td><td>" +
-          data[i].type +
-          "</td><td>" +
-          data[i].status +
-          "</td><td>" +
-          data[i].createdby +
-          "</td><td>" +
-          data[i].createdon +
-          '</td><td><a href="incident.html">view</a></td></tr>';
+          "<tr><td id='emptytable' colspan='7'>" + jsn.error + "</td></tr>";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      } else {
+        let data = jsn.data;
+
+        for (let i = 0; i < data.length; i++) {
+          table_rows +=
+            "<tr><td><a href='incident.html?id=" +
+            data[i].flag_id +
+            "&type=" +
+            data[i].type +
+            "'>" +
+            data[i].title +
+            "</a></td><td>" +
+            data[i].location +
+            "</td><td>" +
+            data[i].type +
+            "</td><td>" +
+            data[i].status +
+            "</td><td>" +
+            data[i].username +
+            "</td><td>" +
+            data[i].createdon +
+            "</td></tr>";
+        }
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
       }
-      let element = document.getElementById("tableRows");
-      element.innerHTML = table_rows;
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
@@ -189,7 +200,7 @@ const createIncident = body => {
         console.log(data.data[0].message);
         // localStorage.setItem(
         //   "userMassage", data.message);
-        // window.location.href = "incident.html";
+        window.location.href = "list.html";
       } else {
         userMessage(data.error, "#f5313180");
       }
