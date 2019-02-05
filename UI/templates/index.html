@@ -2,7 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
+
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
     <script src="../assets/js/fetch.js"></script>
   </head>
@@ -81,7 +85,10 @@
     </footer>
 
     <script type="text/javascript">
-      if (localStorage.getItem("userMassage") != "null") {
+      if (
+        localStorage.getItem("userMassage") != "null" &&
+        localStorage.getItem("userMassage") != null
+      ) {
         userMessage(localStorage.getItem("userMassage"), "#00f9");
         localStorage.setItem("userMassage", null);
       }
