@@ -152,6 +152,7 @@ table {
 }
 
 #main_content .inputfield input,
+#main_content .inputfield select,
 #main_content .doublefield input,
 #main_content .inputfield textarea {
   border-radius: 3px;
@@ -174,6 +175,10 @@ textarea {
   width: 96%;
 }
 
+#main_content .inputfield select {
+  width: 100%;
+}
+
 #main_content .doublefield input {
   height: 35px;
   width: 44.9863%;
@@ -183,7 +188,8 @@ textarea {
   width: 75%;
 }
 
-.inputfield input {
+.inputfield input,
+.inputfield select {
   height: 35px;
   display: inline-block;
 }
