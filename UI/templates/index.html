@@ -1,51 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
+
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
-</head>
-<body>
-<div id="wrapper">
+    <script src="../assets/js/fetch.js"></script>
+  </head>
+  <body>
+    <div id="welcome_nav"></div>
 
-    <hr>
-
-    <div id="main_content">
-        <div id="login">
-            <h3 id="formheading">LOGIN</h3>
-            <form>
-        <table>
-            <tr>
-                <td><label>Username</label></td>
-                <td class="inputfield"><input required type="text" id="username" name="username" placeholder="Username"></td>
-            </tr>
-            <tr>
-                <td><label>Password</label></td>
-                <td class="inputfield"><input required type="password" id="password" name="password" placeholder="Password"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="inputfield"><input type="button" onclick="tologin()" id="login" value="Login" name="login"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="inputfield"><div>Or <a href="signup.html">SignUp</a></div></td>
-            </tr>
-        </table>
-            </form>
-        </div>
+    <div id="navigation">
+      <div id="logo"><h2>Welcome to Ireporter</h2></div>
     </div>
 
-</div>
-<script>
-    function tologin(){
-        var username = document.getElementById("username").value;
-        if (username == "admin"){
-            window.location.href = "./incidents_admin/list.html";
-        }else{
-            window.location.href = "./incidents/list.html";
-        }
-    }
-</script>
-</body>
+    <div id="wrapper">
+      <div id="main_content">
+        <div id="dialog"></div>
+
+        <div>
+          <div id="incidentheader"><h3>Please login</h3></div>
+          <form>
+            <table>
+              <tr>
+                <td><label>Username</label></td>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Username"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Password</label></td>
+                <td class="inputfield">
+                  <input
+                    required
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="inputfield">
+                  <input
+                    type="button"
+                    onclick="tologin()"
+                    id="login"
+                    value="Login"
+                    name="login"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="inputfield">
+                  <div>Or <a href="signup.html">SignUp</a></div>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>
+        <div class="pullleft">
+          Andela
+        </div>
+        <div class="pullright">
+          copy right Josean 2019.
+        </div>
+      </small>
+    </footer>
+
+    <script type="text/javascript">
+      if (
+        localStorage.getItem("userMassage") != "null" &&
+        localStorage.getItem("userMassage") != null
+      ) {
+        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        localStorage.setItem("userMassage", null);
+      }
+
+      tologin = () => {
+        let obj = {};
+        obj.username = document.getElementById("username").value;
+        obj.password = document.getElementById("password").value;
+
+        login(obj);
+      };
+    </script>
+  </body>
 </html>

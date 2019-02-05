@@ -1,81 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>I Reporter</title>
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
-    <script src="../assets/js/ireporter.js"></script> 
-</head>
-<body>
-<div id="wrapper">
- 
-        <div id="navigation">
-            
-        <div class="menu">
-            <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-            <div id="mymenu" class="menu-content">
-                    <a href="userprofile_admin.html">Profile</a>
-                    <a class="active" href="users.html">Users</a>
-                    <a href="./incidents_admin/list.html">Incidents</a>
-                    <a href="index.html">Logout</a>
-            </div>
+    <script src="../assets/js/ireporter.js"></script>
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+        <div id="mymenu" class="menu-content">
+          <a href="userprofile_admin.html">Profile</a>
+          <a class="active" href="users.html">Users</a>
+          <a href="./incidents_admin/list.html">Incidents</a>
+          <a href="index.html">Logout</a>
         </div>
+      </div>
 
-        <div id='logo'><img src="../assets/images/logo.png"></div>
-    
-                <ul class="usertype inlineblock">
-                    <li>Logged is as: Admin</li>
-                </ul>
-                <ul id="main" class="inlineblock">
-                    <li><a href="userprofile_admin.html">Profile</a></li>
-                    <li class="active"><a href="users.html">Users</a></li>
-                    <li><a href="./incidents_admin/list.html">Incidents</a></li>
-                    <li><a href="index.html">Logout</a></li>
-                </ul>
-        </div>
+      <div id="logo"><img src="../assets/images/logo.png" /></div>
 
-    <hr>
+      <ul class="usertype inlineblock">
+        <li>Logged is as: Admin</li>
+      </ul>
+      <ul id="main" class="inlineblock">
+        <li><a href="userprofile_admin.html">Profile</a></li>
+        <li class="active"><a href="users.html">Users</a></li>
+        <li><a href="./incidents_admin/list.html">Incidents</a></li>
+        <li><a href="index.html">Logout</a></li>
+      </ul>
+    </div>
 
-    <div id="main_content">
+    <div id="wrapper">
+      <div id="main_content">
         <div id="incident">
-            <h3 id="formheading">Users</h3>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Other names</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Username</th>
-                    <th>is_admin</th>
-                    <th>Created on</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Joel</td>
-                    <td>Mugaya</td>
-                    <td>Patrick</td>
-                    <td>joel@gmail.com</td>
-                    <td>(+256) 706084841</td>
-                    <td>Josean</td>
-                    <td>false</td>
-                    <td>06-11-2000</td>
-                </tr>
-            </table>
+          <div id="incidentheader"><h3>Users</h3></div>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Other names</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Username</th>
+              <th>is_admin</th>
+              <th>Created on</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Joel</td>
+              <td>Mugaya</td>
+              <td>Patrick</td>
+              <td>joel@gmail.com</td>
+              <td>(+256) 706084841</td>
+              <td>Josean</td>
+              <td>false</td>
+              <td>06-11-2000</td>
+            </tr>
+          </table>
         </div>
+      </div>
     </div>
 
     <footer>
-            <small>
-                <div class="pullleft">
-                    Andela
-                </div>
-                <div class="pullright">
-                    copy right Josean 2019.
-                </div>
-            </small>
-        </footer>
-    
-</div>
-</body>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
+  </body>
 </html>
