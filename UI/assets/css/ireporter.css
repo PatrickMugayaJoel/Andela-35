@@ -1,7 +1,7 @@
 #wrapper {
   margin: 60px 0px 10px 0px;
   padding: 2%;
-  height: 71vh;
+  height: 72.5vh;
   width: 95.5%;
   font-family: arial, sans-serif;
   text-align: center;
@@ -117,6 +117,13 @@ table {
   margin: 0px;
 }
 
+td#emptytable {
+  text-align: center;
+  font-size: 30px;
+  color: #80808080;
+  height: 60px;
+}
+
 #incident table td div,
 #incident table td label {
   display: inline-block;
@@ -132,8 +139,11 @@ table {
 
 #incident table #footrow {
   background-color: #0ff088;
-  color: #fff;
   height: 60px;
+}
+
+#incident table #footrow span {
+  white-space: nowrap;
 }
 
 #incident table th {
@@ -143,11 +153,28 @@ table {
 }
 
 #incidentheader h3 {
-  margin: 10px 10px;
+  padding: 10px 10px;
+}
+
+#incidentbody {
+  height: 100px;
+  vertical-align: top;
+  background-color: #9c999933;
+}
+
+.userrow {
+  height: 30px;
+  vertical-align: middle;
+  background-color: #9c999933;
+}
+
+.label {
+  width: 20%;
+  font-weight: bold;
 }
 
 #main_content {
-  overflow-y: scroll;
+  overflow: auto;
   height: inherit;
 }
 
