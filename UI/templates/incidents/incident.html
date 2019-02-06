@@ -11,30 +11,23 @@
       rel="stylesheet"
       href="../../assets/css/ireporter.css"
     />
+
+    <script type="text/javascript">
+      if (
+        localStorage.getItem("currentUserId") == "null" ||
+        localStorage.getItem("currentUserId") == null
+      ) {
+        localStorage.setItem("userMassage", "Please login.");
+        window.location.href = "../index.html";
+      }
+    </script>
+
+    <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
+    <script src="../../assets/js/fetch.js"></script>
   </head>
   <body>
-    <div id="navigation">
-      <div class="menu">
-        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
-        <div id="mymenu" class="menu-content">
-          <a href="../userprofile.html">Profile</a>
-          <a class="active" href="list.html">Incidents</a>
-          <a href="../index.html">Logout</a>
-        </div>
-      </div>
-
-      <div id="logo"><img src="../../assets/images/logo.png" /></div>
-
-      <ul class="usertype inlineblock">
-        <li>Logged is as: User</li>
-      </ul>
-      <ul id="main" class="inlineblock">
-        <li><a href="../userprofile.html">Profile</a></li>
-        <li class="active"><a href="list.html">Incidents</a></li>
-        <li><a href="../index.html">Logout</a></li>
-      </ul>
-    </div>
+    <div id="navigation"></div>
 
     <div id="wrapper">
       <div id="main_content">
@@ -84,5 +77,28 @@
         <div class="pullright">copy right Josean 2019.</div>
       </small>
     </footer>
+
+    <script type="text/javascript">
+      let navigation = document.getElementById("navigation");
+      if (localStorage.getItem("currentUserIsAdmin") == "true") {
+        navigation.innerHTML = adminNav;
+      } else {
+        navigation.innerHTML = userNav;
+      }
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      console.log(urlParams);
+
+      // let obj = {};
+
+      // obj.id = document.getElementById("title").value;
+      // obj.type = document.getElementById("type").value;
+
+      // getIncident(obj);
+    </script>
   </body>
 </html>
