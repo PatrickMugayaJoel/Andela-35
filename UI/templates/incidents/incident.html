@@ -31,43 +31,8 @@
 
     <div id="wrapper">
       <div id="main_content">
-        <div id="incident">
-          <div>
-            <div id="incidentheader"><h3>Incident</h3></div>
-            <table>
-              <tr id="incidentbody">
-                <td class="label"><b>Description</b></td>
-                <td>This is the description.</td>
-              </tr>
-              <tr id="footrow">
-                <td colspan="2">
-                  <small>
-                    <span
-                      ><b>Type:</b>
-                      <div>intervention</div></span
-                    >
-                    <span
-                      ><b>Status:</b>
-                      <div>managed</div></span
-                    >
-                    <span
-                      ><b>Location:</b>
-                      <div>12345.56, 54321.123</div></span
-                    >
-                    <span
-                      ><b>By:</b>
-                      <div>Josean</div></span
-                    >
-                    <span
-                      ><b>On:</b>
-                      <div>06-11-2000</div></span
-                    >
-                  </small>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+        <div id="dialog"></div>
+        <div id="incident"></div>
       </div>
     </div>
 
@@ -91,14 +56,21 @@
         "logged in as: " + localStorage.getItem("currentUserUsername");
 
       const urlParams = new URLSearchParams(window.location.search);
-      console.log(urlParams);
 
-      // let obj = {};
+      let obj = {};
 
-      // obj.id = document.getElementById("title").value;
-      // obj.type = document.getElementById("type").value;
+      obj.type = urlParams.get("type") + "s";
+      obj.id = urlParams.get("id");
 
-      // getIncident(obj);
+      getIncident(obj);
+
+      if (
+        localStorage.getItem("userMassage") != "null" &&
+        localStorage.getItem("userMassage") != null
+      ) {
+        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        localStorage.setItem("userMassage", null);
+      }
     </script>
   </body>
 </html>
