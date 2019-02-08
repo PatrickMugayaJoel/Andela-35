@@ -10,6 +10,15 @@
   min-width: 300px;
 }
 
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  padding: 1%;
+}
+
 /*= Dialog */
 
 #dialog {
@@ -130,7 +139,7 @@ td#emptytable {
 }
 
 #incident table td span {
-  margin: 5%;
+  margin: 0% 2%;
 }
 
 #incident table td small b {
@@ -140,6 +149,7 @@ td#emptytable {
 #incident table #footrow {
   background-color: #0ff088;
   height: 60px;
+  text-align: center;
 }
 
 #incident table #footrow span {
@@ -330,6 +340,16 @@ footer div {
 @media all and (min-width: 1000px) {
   #main_content .doublefield input {
     width: 45.25%;
+  }
+}
+
+@media all and (max-width: 430px) {
+  #incident table td span {
+    margin: 0% 50% 0px 5px;
+  }
+
+  #incident table #footrow {
+    text-align: left;
   }
 }
 

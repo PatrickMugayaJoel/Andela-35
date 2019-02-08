@@ -31,7 +31,7 @@ const adminNav = `
   </div>
 </div>
 
-<div id="logo"><img src="../../assets/images/logo.png" /></div>
+<div id="logo"><img src="../../assets/images/logo.png" alt="logo" /></div>
 
 <ul id="main" class="inlineblock">
   <li><a href="../userprofile.html">Profile</a></li>

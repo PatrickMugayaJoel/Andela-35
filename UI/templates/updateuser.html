@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
 
     <script src="../assets/js/ireporter.js"></script>
-    <script src="../assets/js/fetch.js"></script>
+    <script src="../assets/js/update_user.js"></script>
   </head>
   <body>
     <div id="welcome_nav"></div>
@@ -24,62 +24,37 @@
         <div id="dialog"></div>
 
         <div>
-          <div id="incidentheader"><h3>Signup</h3></div>
+          <div id="incidentheader"><h3>Update</h3></div>
           <form action="userprofile.html" method="POST">
             <table>
               <tr>
                 <td><label>Username</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="text"
-                    id="username"
-                    placeholder="Username"
-                  />
+                  <input required type="text" id="username" />
                 </td>
               </tr>
               <tr>
                 <td><label>Firstname</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="text"
-                    id="firstname"
-                    placeholder="Firstname"
-                  />
+                  <input required type="text" id="firstname" />
                 </td>
               </tr>
               <tr>
                 <td><label>Lastname</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="text"
-                    id="lastname"
-                    placeholder="Lastname"
-                  />
+                  <input required type="text" id="lastname" />
                 </td>
               </tr>
               <tr>
                 <td><label>Password</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                  />
+                  <input required type="password" id="password" />
                 </td>
               </tr>
               <tr>
                 <td><label>Phone</label></td>
                 <td class="inputfield">
-                  <input
-                    required
-                    type="number"
-                    id="phonenumber"
-                    placeholder="Phone number"
-                  />
+                  <input required type="number" id="phonenumber" />
                 </td>
               </tr>
               <tr>
@@ -93,16 +68,9 @@
                 <td class="inputfield">
                   <input
                     type="button"
-                    onclick="toSignup()"
-                    id="signup"
-                    value="register"
+                    onclick="toUpdateUser()"
+                    value="Update"
                   />
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="inputfield">
-                  <div>Or <a href="index.html">Login</a></div>
                 </td>
               </tr>
             </table>
@@ -123,8 +91,15 @@
     </footer>
 
     <script>
-      toSignup = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      let id = urlParams.get("id");
+
+      getUser(id);
+
+      toUpdateUser = () => {
         let obj = {};
+
+        obj.id = id;
         obj.username = document.getElementById("username").value;
         obj.password = document.getElementById("password").value;
         obj.email = document.getElementById("email").value;
@@ -134,7 +109,7 @@
           document.getElementById("phonenumber").value
         );
 
-        signup(obj);
+        updateUser(obj);
       };
     </script>
   </body>
