@@ -8,69 +8,54 @@
 
     <link type="image/png" rel="icon" href="../assets/images/logo.png" />
     <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
+
+    <script type="text/javascript">
+      if (
+        localStorage.getItem("currentUserId") == "null" ||
+        localStorage.getItem("currentUserId") == null
+      ) {
+        localStorage.setItem("userMassage", "Please login.");
+        window.location.href = "index.html";
+      }
+    </script>
+
+    <script src="../assets/js/elements.js"></script>
     <script src="../assets/js/ireporter.js"></script>
+    <script src="../assets/js/user_profile.js"></script>
   </head>
   <body>
     <div id="navigation">
       <div class="menu">
         <button onclick="myFunction()" class="dropbtn">&#9776;</button>
         <div id="mymenu" class="menu-content">
-          <a class="active" href="userprofile.html">Profile</a>
-          <a href="users.html">Users</a>
-          <a href="./incidents/list.html">Incidents</a>
-          <a href="index.html">Logout</a>
+          <a href="userprofile.html">Profile</a>
+          <a id="userslin" href="users.html">Users</a>
+          <a class="active" href="./incidents/list.html">Incidents</a>
+          <a onclick="logout2()">Logout</a>
         </div>
       </div>
 
-      <div id="logo"><img src="../assets/images/logo.png" /></div>
+      <div id="logo"><img src="../assets/images/logo.png" alt="logo" /></div>
+
+      <ul id="main" class="inlineblock">
+        <li><a href="userprofile.html">Profile</a></li>
+        <li id="userslink"><a href="users.html">Users</a></li>
+        <li class="active"><a href="./incidents/list.html">Incidents</a></li>
+        <li><a onclick="logout2()">Logout</a></li>
+      </ul>
 
       <ul class="usertype inlineblock">
-        <li>Logged is as: User</li>
-      </ul>
-      <ul id="main" class="inlineblock">
-        <li class="active"><a href="./userprofile.html">Profile</a></li>
-        <li><a href="./incidents/list.html">Incidents</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li id="loggedinAs"></li>
       </ul>
     </div>
 
     <div id="wrapper">
       <div id="main_content">
+        <div id="dialog"></div>
         <div id="incident">
           <div id="incidentheader"><h3>User</h3></div>
-          <table>
-            <tr class="userrow">
-              <td class="label">ID:</td>
-              <td>1</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Username:</td>
-              <td>Josean</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Name:</td>
-              <td>Joel Mugaya Patrick</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Email:</td>
-              <td>joel@gmail.com</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Phone Number:</td>
-              <td>(+256) 706084841</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Is Admin</td>
-              <td>false</td>
-            </tr>
-            <tr class="userrow">
-              <td class="label">Registered</td>
-              <td>06-11-2000</td>
-            </tr>
-            <tr id="footrow">
-              <td colspan="2"></td>
-            </tr>
-          </table>
+
+          <table id="tableRows"></table>
         </div>
       </div>
     </div>
@@ -81,5 +66,32 @@
         <div class="pullright">copy right Josean 2019.</div>
       </small>
     </footer>
+
+    <script type="text/javascript">
+      const urlParams = new URLSearchParams(window.location.search);
+      let id = urlParams.get("id");
+
+      if (id == null) id = localStorage.getItem("currentUserId");
+      getUser(id);
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+
+      if (localStorage.getItem("currentUserIsAdmin") != "true") {
+        let element = document.getElementById("userslink");
+        let element2 = document.getElementById("userslin");
+        element.style.display = "none";
+        element2.style.display = "none";
+      }
+
+      if (
+        localStorage.getItem("userMassage") != "null" &&
+        localStorage.getItem("userMassage") != null
+      ) {
+        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        localStorage.setItem("userMassage", null);
+      }
+    </script>
   </body>
 </html>
