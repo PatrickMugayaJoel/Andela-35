@@ -2,7 +2,10 @@ const getIncident = params => {
   // Get Incident from Api to web page
 
   return fetch(
-    "http://127.0.0.1:5000/ireporter/api/v2/" + params.type + "/" + params.id
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/" +
+      params.type +
+      "/" +
+      params.id
   )
     .then(response => response.json())
     .then(jsn => {
@@ -36,7 +39,7 @@ const updateIncident = body => {
   };
 
   return fetch(
-    "http://127.0.0.1:5000/ireporter/api/v2/incidents/" + body.id,
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/incidents/" + body.id,
     options
   )
     .then(response => response.json())

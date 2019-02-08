@@ -9,7 +9,10 @@ const getUser = id => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/users/" + id, options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/users/" + id,
+    options
+  )
     .then(response => response.json())
     .then(jsn => {
       if (jsn.error) {

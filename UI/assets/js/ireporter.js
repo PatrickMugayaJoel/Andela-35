@@ -56,7 +56,10 @@ const logout = () => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/auth/logout", options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/logout",
+    options
+  )
     .then(response => response.json())
     .then(data => {
       localStorage.setItem("currentUserId", null);
@@ -88,7 +91,10 @@ const logout2 = () => {
     })
   };
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/auth/logout", options)
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/logout",
+    options
+  )
     .then(response => response.json())
     .then(data => {
       localStorage.setItem("currentUserId", null);
