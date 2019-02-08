@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>I Reporter</title>
+
+    <link type="image/png" rel="icon" href="../assets/images/logo.png" />
+    <link type="text/css" rel="stylesheet" href="../assets/css/ireporter.css" />
+
+    <script src="../assets/js/ireporter.js"></script>
+    <script src="../assets/js/update_user.js"></script>
+  </head>
+  <body>
+    <div id="welcome_nav"></div>
+
+    <div id="navigation">
+      <div id="logo"><h2>Welcome to Ireporter</h2></div>
+    </div>
+
+    <div id="wrapper">
+      <div id="main_content">
+        <div id="dialog"></div>
+
+        <div>
+          <div id="incidentheader"><h3>Update</h3></div>
+          <form action="userprofile.html" method="POST">
+            <table>
+              <tr>
+                <td><label>Username</label></td>
+                <td class="inputfield">
+                  <input required type="text" id="username" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Firstname</label></td>
+                <td class="inputfield">
+                  <input required type="text" id="firstname" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Lastname</label></td>
+                <td class="inputfield">
+                  <input required type="text" id="lastname" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Password</label></td>
+                <td class="inputfield">
+                  <input required type="password" id="password" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Phone</label></td>
+                <td class="inputfield">
+                  <input required type="number" id="phonenumber" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Email</label></td>
+                <td class="inputfield">
+                  <input required type="email" id="email" placeholder="email" />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="inputfield">
+                  <input
+                    type="button"
+                    onclick="toUpdateUser()"
+                    value="Update"
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>
+        <div class="pullleft">
+          Andela
+        </div>
+        <div class="pullright">
+          copy right Josean 2019.
+        </div>
+      </small>
+    </footer>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      let id = urlParams.get("id");
+
+      getUser(id);
+
+      toUpdateUser = () => {
+        let obj = {};
+
+        obj.id = id;
+        obj.username = document.getElementById("username").value;
+        obj.password = document.getElementById("password").value;
+        obj.email = document.getElementById("email").value;
+        obj.lastname = document.getElementById("lastname").value;
+        obj.firstname = document.getElementById("firstname").value;
+        obj.phonenumber = parseInt(
+          document.getElementById("phonenumber").value
+        );
+
+        updateUser(obj);
+      };
+    </script>
+  </body>
+</html>
