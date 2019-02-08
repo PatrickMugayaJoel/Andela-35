@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>I Reporter</title>
+
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css/ireporter.css"
+    />
+
+    <script type="text/javascript">
+      if (
+        localStorage.getItem("currentUserId") == "null" ||
+        localStorage.getItem("currentUserId") == null
+      ) {
+        localStorage.setItem("userMassage", "Please login.");
+        window.location.href = "../index.html";
+      }
+    </script>
+
+    <script src="../../assets/js/elements.js"></script>
+    <script src="../../assets/js/ireporter.js"></script>
+    <script src="../../assets/js/update_incident.js"></script>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <div id="wrapper">
+      <div id="main_content">
+        <div id="dialog"></div>
+
+        <div>
+          <div id="incidentheader"><h3>Update</h3></div>
+          <form method="POST">
+            <table>
+              <tr>
+                <td><label>Title</label></td>
+                <td class="inputfield">
+                  <input required type="text" id="title" />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Description</label></td>
+                <td class="inputfield">
+                  <textarea value="test" required id="description"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Geo-location </label></td>
+                <td class="doublefield">
+                  <input required type="number" id="latitude" />
+                  <input required type="number" id="longitude" />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="inputfield">
+                  <input
+                    type="button"
+                    onclick="toUpdateIncident()"
+                    id="report"
+                    value="Update Incident"
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
+
+    <script type="text/javascript">
+      let navigation = document.getElementById("navigation");
+      if (localStorage.getItem("currentUserIsAdmin") == "true") {
+        navigation.innerHTML = adminNav;
+      } else {
+        navigation.innerHTML = userNav;
+      }
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      let urlprms = {};
+      urlprms.type = urlParams.get("type") + "s";
+      urlprms.id = urlParams.get("id");
+      getIncident(urlprms);
+
+      toUpdateIncident = () => {
+        let obj = {};
+        let latitude = document.getElementById("latitude").value;
+        let longitude = document.getElementById("longitude").value;
+
+        obj.title = document.getElementById("title").value;
+        obj.comment = document.getElementById("description").value;
+        obj.location = latitude + ", " + longitude;
+        obj.mytype = urlParams.get("type");
+        obj.id = urlprms.id;
+
+        if (latitude.length < 3 || longitude.length < 3) {
+          console.log(latitude);
+          console.log(longitude);
+          userMessage("Location can not be empty!", "#f5313180");
+        } else updateIncident(obj);
+      };
+    </script>
+  </body>
+</html>
