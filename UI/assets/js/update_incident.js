@@ -14,8 +14,11 @@ const getIncident = params => {
       } else {
         const data = jsn.data;
 
+        let location = data.location.split(",");
+
         document.getElementById("latitude").value = data.location;
-        document.getElementById("longitude").value = data.location;
+        document.getElementById("latitude").value = location[0];
+        document.getElementById("longitude").value = location[1].trim();
         document.getElementById("title").value = data.title;
         document.getElementById("description").value = data.comment;
       }
@@ -45,10 +48,7 @@ const updateIncident = body => {
     .then(response => response.json())
     .then(data => {
       if (data.status == 200) {
-        localStorage.setItem(
-          "userMassage",
-          body.type + " successfully updated."
-        );
+        localStorage.setItem("userMassage", " successfully updated.");
         window.location.href =
           "incident.html?id=" + body.id + "&type=" + body.mytype;
       } else {

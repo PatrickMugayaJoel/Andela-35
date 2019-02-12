@@ -5,12 +5,10 @@ const getRedFlags = () => {
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
-                    <th>Title</th>
-                    <th>Location</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th>Created by</th>
-                    <th>Created on</th>
+                    <th class='redth'>Title</th>
+                    <th class='redth'>Status</th>
+                    <th class='redth'>Created by</th>
+                    <th class='redth'>Created on</th>
                 </tr>`;
 
       if (jsn.error) {
@@ -22,6 +20,51 @@ const getRedFlags = () => {
         let data = jsn.data;
 
         for (let i = 0; i < data.length; i++) {
+          let selectoptions = `
+          <option value=''> - select - </option>
+          <option value='under investigation'>Under Investigation</option>
+          <option value='rejected'>Rejected</option>
+          <option value='resolved'>Resolved</option>
+          `;
+
+          if (data[i].status == "rejected") {
+            selectoptions = `
+  <option value='under investigation'>Under Investigation</option>
+  <option selected value='rejected'>Rejected</option>
+  <option value='resolved'>Resolved</option>
+  `;
+          } else if (data[i].status == "resolved") {
+            selectoptions = `
+  <option value='under investigation'>Under Investigation</option>
+  <option value='rejected'>Rejected</option>
+  <option selected value='resolved'>Resolved</option>
+  `;
+          } else if (data[i].status == "under investigation") {
+            selectoptions = `
+  <option selected value='under investigation'>Under Investigation</option>
+  <option value='rejected'>Rejected</option>
+  <option value='resolved'>Resolved</option>
+  `;
+          }
+
+          let array = data[i].createdon.split(" ");
+          let date =
+            array[0] + " " + array[1] + " " + array[2] + " " + array[3];
+
+          let myselect = `<td>` + data[i].status + `</td>`;
+          if (localStorage.getItem("currentUserIsAdmin") == "true") {
+            myselect =
+              `<td class='select-status'><form>
+  <select id='` +
+              data[i].flag_id +
+              `' onchange="updateStatus('red-flags', ` +
+              data[i].flag_id +
+              `)">` +
+              selectoptions +
+              `</select>
+  </form></td>`;
+          }
+
           table_rows +=
             "<tr><td><a href='incident.html?id=" +
             data[i].flag_id +
@@ -29,18 +72,110 @@ const getRedFlags = () => {
             data[i].type +
             "'>" +
             data[i].title +
-            "</a></td><td>" +
-            data[i].location +
-            "</td><td>" +
-            data[i].type +
-            "</td><td>" +
-            data[i].status +
-            "</td><td>" +
+            "</a></td>" +
+            myselect +
+            `<td>` +
             data[i].username +
             "</td><td>" +
-            data[i].createdon +
+            date +
             "</td></tr>";
         }
+        document.getElementById("incidenttitle").innerHTML = "Redflags";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      }
+    })
+    .catch(err => {
+      console.log("Fetch Error :-S", err);
+      userMessage(err, "#f5313180");
+    });
+};
+
+const getInternvetions = () => {
+  // Add redflags from Api to web page
+
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/interventions"
+  )
+    .then(response => response.json())
+    .then(jsn => {
+      let table_rows = `<tr>
+                    <th class='blueth'>Title</th>
+                    <th class='blueth'>Status</th>
+                    <th class='blueth'>Created by</th>
+                    <th class='blueth'>Created on</th>
+                </tr>`;
+
+      if (jsn.error) {
+        table_rows +=
+          "<tr><td id='emptytable' colspan='7'>" + jsn.error + "</td></tr>";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      } else {
+        let data = jsn.data;
+
+        for (let i = 0; i < data.length; i++) {
+          let selectoptions = `
+          <option value=''> - select - </option>
+          <option value='under investigation'>Under Investigation</option>
+          <option value='rejected'>Rejected</option>
+          <option value='resolved'>Resolved</option>
+          `;
+
+          if (data[i].status == "rejected") {
+            selectoptions = `
+  <option value='under investigation'>Under Investigation</option>
+  <option selected value='rejected'>Rejected</option>
+  <option value='resolved'>Resolved</option>
+  `;
+          } else if (data[i].status == "resolved") {
+            selectoptions = `
+  <option value='under investigation'>Under Investigation</option>
+  <option value='rejected'>Rejected</option>
+  <option selected value='resolved'>Resolved</option>
+  `;
+          } else if (data[i].status == "under investigation") {
+            selectoptions = `
+  <option selected value='under investigation'>Under Investigation</option>
+  <option value='rejected'>Rejected</option>
+  <option value='resolved'>Resolved</option>
+  `;
+          }
+
+          let array = data[i].createdon.split(" ");
+          let date =
+            array[0] + " " + array[1] + " " + array[2] + " " + array[3];
+
+          let myselect = `<td>` + data[i].status + `</td>`;
+          if (localStorage.getItem("currentUserIsAdmin") == "true") {
+            myselect =
+              `<td class='select-status'><form>
+  <select id='` +
+              data[i].flag_id +
+              `' onchange="updateStatus('red-flags', ` +
+              data[i].flag_id +
+              `)">` +
+              selectoptions +
+              `</select>
+  </form></td>`;
+          }
+
+          table_rows +=
+            "<tr><td><a href='incident.html?id=" +
+            data[i].flag_id +
+            "&type=" +
+            data[i].type +
+            "'>" +
+            data[i].title +
+            "</a></td>" +
+            myselect +
+            `<td>` +
+            data[i].username +
+            "</td><td>" +
+            date +
+            "</td></tr>";
+        }
+        document.getElementById("incidenttitle").innerHTML = "Internventions";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
       }
@@ -178,20 +313,32 @@ const getIncident = params => {
       } else {
         const data = jsn.data;
 
+        let location = data.location.split(",");
+        let array = data.createdon.split(" ");
+        let date = array[0] + " " + array[1] + " " + array[2] + " " + array[3];
+
         const table =
           `
       <div id="incidentheader"><h3>` +
           data.title +
           `</h3></div>
-          <div class="pullleft">
-          <a href="update_incident.html?id=` +
+          <div class="button_two pullleft">
+          <button onclick="window.location.href = 'update_incident.html?id=` +
           data.flag_id +
           `&type=` +
           data.type +
-          `">Edit ` +
+          `'">Edit ` +
           data.type +
-          `</a></div>
-          <table>
+          `</button>
+          <button class="two_right" onclick="window.location.href = 'location.html?longitude=` +
+          location[0] +
+          `&latitude=` +
+          location[1].trim() +
+          `&title=` +
+          data.title +
+          `'">location</button>
+          <button class="two_right" onclick="">images</button>
+          </div> <table>
             <tr id="incidentbody">
               <td class="label"><b>Description</b></td>
               <td>` +
@@ -228,7 +375,7 @@ const getIncident = params => {
                   <span
                     ><b>On:</b>
                     <div>` +
-          data.createdon +
+          date +
           `</div></span
                   >
                 </small>
