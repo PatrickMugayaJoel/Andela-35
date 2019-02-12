@@ -15,7 +15,7 @@
     <link
       type="text/css"
       rel="stylesheet"
-      href="../../assets/css//font/css/fontawesome.css"
+      href="../../assets/css/font/css/fontawesome.css"
     />
 
     <script type="text/javascript">
@@ -31,6 +31,7 @@
     <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
     <script src="../../assets/js/fetch.js"></script>
+    <script src="../../assets/js/update_status.js"></script>
   </head>
 
   <body>
@@ -41,11 +42,17 @@
         <div id="dialog"></div>
         <div id="incident">
           <div id="incidentheader">
-            <h3 class="inlineblock">Incidents</h3>
+            <h3 class="inlineblock" id="incidenttitle">Incidents</h3>
           </div>
 
           <a href="create.html" class="pullleft inlineblock">Add Incident</a>
 
+          <div class="pullright button_two">
+            <button onclick="getRedFlags()" class="two_left">redflags</button
+            ><button onclick="getInternvetions()" class="two_right">
+              interventions
+            </button>
+          </div>
           <table id="tableRows"></table>
         </div>
       </div>
@@ -59,6 +66,17 @@
     </footer>
 
     <script type="text/javascript">
+      if (
+        localStorage.getItem("userMassage") != "null" &&
+        localStorage.getItem("userMassage") != null
+      ) {
+        userMessage(
+          localStorage.getItem("userMassage"),
+          "rgba(173, 212, 222, 0.38)"
+        );
+        localStorage.setItem("userMassage", null);
+      }
+
       let navigation = document.getElementById("navigation");
       if (localStorage.getItem("currentUserIsAdmin") == "true") {
         navigation.innerHTML = adminNav;
