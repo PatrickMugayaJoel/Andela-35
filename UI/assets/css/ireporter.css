@@ -144,6 +144,10 @@ table {
   text-align: left;
 }
 
+.userstable th {
+  background-color: #0ff088;
+}
+
 #incident table {
   width: 100%;
   padding: 10px 0px;
