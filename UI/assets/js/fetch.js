@@ -337,7 +337,6 @@ const getIncident = params => {
           `&title=` +
           data.title +
           `'">location</button>
-          <button class="two_right" onclick="">images</button>
           </div> <table>
             <tr id="incidentbody">
               <td class="label"><b>Description</b></td>
