@@ -1,13 +1,36 @@
 #wrapper {
   margin: 60px 0px 10px 0px;
   padding: 2%;
-  height: 72.5vh;
+  height: 67vh;
   width: 95.5%;
   font-family: arial, sans-serif;
   text-align: center;
   background-color: white;
-  border-radius: 5px;
   min-width: 300px;
+  background-image: url(../../assets/images/report.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 60%;
+}
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  color: initial;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.select-status,
+select {
+  border: none;
+}
+
+.two_right {
+  margin-left: -1%;
 }
 
 a.button {
@@ -28,6 +51,16 @@ a.button {
   transition: all 400ms ease-in;
 }
 
+.blueth {
+  background-color: #0707c3e6;
+  color: white;
+}
+
+.redth {
+  background-color: #e40707e6;
+  color: white;
+}
+
 #dialog-content {
   width: 50%;
   min-width: 300px;
@@ -46,10 +79,6 @@ a.button {
 
 #dialog-content ul {
   text-align: left;
-}
-
-body {
-  background-color: black;
 }
 
 #navigation ul li a {
@@ -159,7 +188,6 @@ td#emptytable {
 #incident table th {
   padding: 10px 6px;
   margin: 0px;
-  background-color: #0ff088;
 }
 
 #incidentheader h3 {
@@ -193,7 +221,7 @@ td#emptytable {
 #main_content .doublefield input,
 #main_content .inputfield textarea {
   border-radius: 3px;
-  border-color: #86868733;
+  border-color: #03032cd7;
   border-style: solid;
   border-width: 1px;
   padding: 2px 2%;
@@ -235,8 +263,9 @@ textarea {
 .inputfield input[type="button"] {
   margin: 0px;
   width: 100.3%;
-  color: #6c6666b3;
+  color: white;
   border-width: 0px;
+  background-color: #050404;
 }
 
 #main a {
@@ -288,6 +317,38 @@ footer div {
 
 .usertype {
   float: right;
+}
+
+html,
+body,
+#map {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#map_info {
+  width: 90%;
+  height: 40%;
+}
+
+.mapboxgl-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#info {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #222;
+  background: #fff;
 }
 
 /* ------------------ small device menu ------------------------- */

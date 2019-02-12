@@ -26,6 +26,20 @@
     <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
     <script src="../../assets/js/fetch.js"></script>
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <!-- Mapbox GL -->
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
   </head>
   <body>
     <div id="navigation"></div>
@@ -92,6 +106,11 @@ Add a description</textarea
             </table>
           </form>
         </div>
+
+        <center id="map_info">
+          <pre id="info">click on map to select location.</pre>
+          <div id="map"></div>
+        </center>
       </div>
     </div>
 
@@ -124,12 +143,38 @@ Add a description</textarea
         obj.comment = document.getElementById("description").value;
         obj.location = latitude + ", " + longitude;
 
-        if (latitude.length < 3 || longitude.length < 3) {
-          console.log(latitude);
-          console.log(longitude);
-          userMessage("Location can not be empty!", "#f5313180");
+        if (
+          latitude < -90 ||
+          longitude < -90 ||
+          90 < latitude ||
+          90 < longitude
+        ) {
+          userMessage("Wrong location!", "#f5313180");
         } else createIncident(obj);
       };
+    </script>
+
+    <!-- map -->
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoiam9zZWFucCIsImEiOiJjanMwYzdudHAwMWt3NGFrdnYwYzBwdjBkIn0.tGuPhAyv5SppQm57qD5VSQ";
+      var map = new mapboxgl.Map({
+        container: "map", // container id
+        style: "mapbox://styles/mapbox/streets-v9",
+        center: [0.3775, 32.6068], // starting position
+        zoom: 5 // starting zoom
+      });
+
+      let elements = document.getElementsByClassName("mapboxgl-canvas");
+      Array.from(elements).forEach(element => {
+        element.style.width = "100%";
+        element.style.position = "initial";
+      });
+
+      map.on("click", function(e) {
+        document.getElementById("latitude").value = e.lngLat.lat;
+        document.getElementById("longitude").value = e.lngLat.lng;
+      });
     </script>
   </body>
 </html>
