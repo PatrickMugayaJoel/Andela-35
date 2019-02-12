@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>I Reporter</title>
+    <link type="image/png" rel="icon" href="../../assets/images/logo.png" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../assets/css/ireporter.css"
+    />
+
+    <script src="../../assets/js/elements.js"></script>
+    <script src="../../assets/js/ireporter.js"></script>
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <!-- Mapbox GL -->
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+  </head>
+
+  <body>
+    <div id="navigation"></div>
+
+    <div id="wrapper">
+      <div id="main_content">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <footer>
+      <small>
+        <div class="pullleft">Andela</div>
+        <div class="pullright">copy right Josean 2019.</div>
+      </small>
+    </footer>
+
+    <script type="text/javascript">
+      let navigation = document.getElementById("navigation");
+      if (localStorage.getItem("currentUserIsAdmin") == "true") {
+        navigation.innerHTML = adminNav;
+      } else {
+        navigation.innerHTML = userNav;
+      }
+
+      let loggedinAs = document.getElementById("loggedinAs");
+      loggedinAs.innerHTML =
+        "logged in as: " + localStorage.getItem("currentUserUsername");
+    </script>
+
+    <script src="../../assets/js/leaflet-mapbox-gl.js"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      longitude = urlParams.get("longitude");
+      latitude = urlParams.get("latitude");
+      title = urlParams.get("title");
+
+      if (longitude.length > 3 && latitude.length > 3 && title.length > 3) {
+        var map = L.map("map").setView([longitude, latitude], 10);
+
+        L.marker([longitude, latitude])
+          .bindPopup(title)
+          .addTo(map)
+          .openPopup();
+      } else var map = L.map("map").setView([0.3775, 32.6068], 10);
+
+      var gl = L.mapboxGL({
+        accessToken:
+          "pk.eyJ1Ijoiam9zZWFucCIsImEiOiJjanMwYzdudHAwMWt3NGFrdnYwYzBwdjBkIn0.tGuPhAyv5SppQm57qD5VSQ",
+        style:
+          "https://raw.githubusercontent.com/osm2vectortiles/mapbox-gl-styles/master/styles/bright-v9-cdn.json"
+      }).addTo(map);
+    </script>
+  </body>
+</html>

@@ -65,11 +65,11 @@
               </tr>
               <tr>
                 <td></td>
-                <td class="inputfield">
-                  <div>Or <a href="signup.html">SignUp</a></div>
-                </td>
               </tr>
             </table>
+            <center>
+              <small><a href="signup.html">SignUp</a></small>
+            </center>
           </form>
         </div>
       </div>
@@ -91,7 +91,10 @@
         localStorage.getItem("userMassage") != "null" &&
         localStorage.getItem("userMassage") != null
       ) {
-        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        userMessage(
+          localStorage.getItem("userMassage"),
+          "rgba(173, 212, 222, 0.38)"
+        );
         localStorage.setItem("userMassage", null);
       }
 
