@@ -14,7 +14,11 @@ const updateStatus = (type, id) => {
   };
 
   return fetch(
-    "http://127.0.0.1:5000/ireporter/api/v2/" + type + "/" + id + "/status",
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/" +
+      type +
+      "/" +
+      id +
+      "/status",
     options
   )
     .then(response => response.json())
