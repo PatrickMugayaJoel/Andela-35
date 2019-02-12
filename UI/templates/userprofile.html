@@ -89,7 +89,10 @@
         localStorage.getItem("userMassage") != "null" &&
         localStorage.getItem("userMassage") != null
       ) {
-        userMessage(localStorage.getItem("userMassage"), "#00f9");
+        userMessage(
+          localStorage.getItem("userMassage"),
+          "rgba(173, 212, 222, 0.38)"
+        );
         localStorage.setItem("userMassage", null);
       }
     </script>
