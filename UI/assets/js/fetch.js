@@ -94,7 +94,9 @@ const getRedFlags = () => {
 const getInternvetions = () => {
   // Add redflags from Api to web page
 
-  return fetch("http://127.0.0.1:5000/ireporter/api/v2/interventions")
+  return fetch(
+    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/interventions"
+  )
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
