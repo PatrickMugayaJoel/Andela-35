@@ -27,11 +27,11 @@ const updateStatus = (type, id) => {
         localStorage.setItem("userMassage", " successfully updated.");
         window.location.href = "list.html";
       } else {
-        userMessage(data.error, "#f5313180");
+        userMessage(data.error, "rgb(224, 35, 35)");
       }
     })
     .catch(err => {
       console.log("Fetch Error: ", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };

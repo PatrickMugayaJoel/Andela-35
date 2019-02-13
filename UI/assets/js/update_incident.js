@@ -10,7 +10,7 @@ const getIncident = params => {
     .then(response => response.json())
     .then(jsn => {
       if (jsn.error) {
-        userMessage(jsn.error, "#f5313180");
+        userMessage(jsn.error, "rgb(224, 35, 35)");
       } else {
         const data = jsn.data;
 
@@ -25,7 +25,7 @@ const getIncident = params => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -52,11 +52,11 @@ const updateIncident = body => {
         window.location.href =
           "incident.html?id=" + body.id + "&type=" + body.mytype;
       } else {
-        userMessage(data.error, "#f5313180");
+        userMessage(data.error, "rgb(224, 35, 35)");
       }
     })
     .catch(err => {
       console.log("Fetch Error: ", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };

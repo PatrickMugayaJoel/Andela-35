@@ -82,6 +82,6 @@ const getUser = id => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
