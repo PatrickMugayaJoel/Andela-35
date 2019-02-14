@@ -15,12 +15,42 @@ const getUser = id => {
   )
     .then(response => response.json())
     .then(jsn => {
-      if (jsn.error) {
+      if (jsn.error && jsn.error == "Signature verification failed") {
+        let table_rows =
+          "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      } else if (jsn.error) {
         let element = document.getElementById("tableRows");
         element.innerHTML =
           "<tr><td id='emptytable' colspan='6'>" + jsn.error + "</td></tr>";
       } else {
         let data = jsn.data[0];
+
+        let myselect = `<td>` + data.is_admin + `</td>`;
+
+        let selectoptions = `
+        <option value='true'>true</option>
+<option selected value='false'>false</option>
+`;
+        if (data.is_admin) {
+          selectoptions = `
+          <option selected value='true'>true</option>
+  <option value='false'>false</option>
+  `;
+        }
+
+        if (localStorage.getItem("currentUserIsAdmin") == "true") {
+          myselect =
+            `<td class='select-status'><form>
+<select id='isadmin' onchange="adminRights(` +
+            data.userid +
+            `)">` +
+            selectoptions +
+            `
+</select>
+</form></td>`;
+        }
 
         let element = document.getElementById("tableRows");
         element.innerHTML =
@@ -58,10 +88,9 @@ const getUser = id => {
           `</td>
         </tr>
         <tr class="userrow">
-          <td class="label">Admin</td>
-          <td>` +
-          data.is_admin +
-          `</td>
+          <td class="label">Admin</td>` +
+          myselect +
+          `
         </tr>
         <tr class="userrow">
           <td class="label">Registered</td>
