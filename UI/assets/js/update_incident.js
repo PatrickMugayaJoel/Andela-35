@@ -52,7 +52,11 @@ const updateIncident = body => {
         window.location.href =
           "incident.html?id=" + body.id + "&type=" + body.mytype;
       } else {
-        userMessage(data.error, "rgb(224, 35, 35)");
+        if (data.error && data.error == "Signature verification failed") {
+          userMessage("Network Error", "rgb(224, 35, 35)");
+        } else {
+          userMessage(data.error, "rgb(224, 35, 35)");
+        }
       }
     })
     .catch(err => {
