@@ -419,12 +419,17 @@ const getUsers = () => {
           <th>Admin</th>
         </tr>`;
 
-      if (jsn.error) {
+      if (jsn.error && jsn.error == "Signature verification failed") {
+        table_rows +=
+          "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      } else if (jsn.error) {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>" + jsn.error + "</td></tr>";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
-      } else if (jsn.status == 401) {
+      } else if (jsn.data[0].message) {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>" +
           jsn.data[0].message +
