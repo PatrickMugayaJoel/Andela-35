@@ -1,8 +1,7 @@
 const updateStatus = (type, id) => {
   // update incident's status
 
-  let body = new Object();
-  body.status = document.getElementById(id).value;
+  let body = { status: document.getElementById(id).value };
 
   const options = {
     method: "PATCH",
