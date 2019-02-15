@@ -32,14 +32,12 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
     />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
     <!-- Mapbox GL -->
     <link
       href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
   </head>
   <body>
     <div id="navigation"></div>
@@ -50,7 +48,7 @@
 
         <div>
           <div id="incidentheader"><h3>Report an Incident</h3></div>
-          <form method="POST">
+          <form class="form">
             <table>
               <tr>
                 <td><label>Title</label></td>
@@ -62,6 +60,7 @@
                 <td><label>Type</label></td>
                 <td class="inputfield">
                   <select required type="text" id="type">
+                    <option value=""> - select - </option>
                     <option value="interventions">Intervention</option>
                     <option value="red-flags">Red flag</option>
                   </select>
@@ -76,20 +75,10 @@ Add a description</textarea
                 </td>
               </tr>
               <tr>
-                <td><label>Geo-location </label></td>
-                <td class="doublefield">
-                  <input
-                    required
-                    type="number"
-                    id="latitude"
-                    placeholder="latitude"
-                  />
-                  <input
-                    required
-                    type="number"
-                    id="longitude"
-                    placeholder="longitude"
-                  />
+                <td><label></label></td>
+                <td hidden class="doublefield">
+                  <input type="number" id="latitude" placeholder="latitude" />
+                  <input type="number" id="longitude" placeholder="longitude" />
                 </td>
               </tr>
               <tr>
@@ -144,36 +133,53 @@ Add a description</textarea
         obj.location = latitude + ", " + longitude;
 
         if (
+          latitude == "" ||
           latitude < -90 ||
           longitude < -90 ||
           90 < latitude ||
           90 < longitude
         ) {
-          userMessage("Wrong location!", "rgb(224, 35, 35)");
-        } else createIncident(obj);
+          userMessage(
+            "Please select location on the map below.",
+            "rgb(224, 35, 35)"
+          );
+        } //else createIncident(obj);
+        console.log(latitude);
       };
     </script>
 
     <!-- map -->
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1Ijoiam9zZWFucCIsImEiOiJjanMwYzdudHAwMWt3NGFrdnYwYzBwdjBkIn0.tGuPhAyv5SppQm57qD5VSQ";
-      var map = new mapboxgl.Map({
-        container: "map", // container id
-        style: "mapbox://styles/mapbox/streets-v9",
-        center: [0.3775, 32.6068], // starting position
-        zoom: 5 // starting zoom
-      });
 
-      let elements = document.getElementsByClassName("mapboxgl-canvas");
-      Array.from(elements).forEach(element => {
-        element.style.width = "100%";
-        element.style.position = "initial";
-      });
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <!-- Mapbox GL -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+
+    <script src="../../assets/js/leaflet-mapbox-gl.js"></script>
+    <script>
+      var map = L.map("map").setView([0.3775, 32.6068], 6);
+
+      var marker = L.marker();
+
+      function onMapClick(e) {
+        marker
+          .setLatLng(e.latlng)
+          .addTo(map)
+          .openPopup();
+      }
+
+      var gl = L.mapboxGL({
+        accessToken:
+          "pk.eyJ1Ijoiam9zZWFucCIsImEiOiJjanMwYzdudHAwMWt3NGFrdnYwYzBwdjBkIn0.tGuPhAyv5SppQm57qD5VSQ",
+        style:
+          "https://raw.githubusercontent.com/osm2vectortiles/mapbox-gl-styles/master/styles/bright-v9-cdn.json"
+      }).addTo(map);
 
       map.on("click", function(e) {
-        document.getElementById("latitude").value = e.lngLat.lat;
-        document.getElementById("longitude").value = e.lngLat.lng;
+        document.getElementById("latitude").value = e.latlng.lat;
+        document.getElementById("longitude").value = e.latlng.lng;
+        onMapClick(e);
       });
     </script>
   </body>

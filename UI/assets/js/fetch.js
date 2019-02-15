@@ -7,10 +7,11 @@ const getRedFlags = () => {
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
-                    <th class='redth'>Title</th>
-                    <th class='redth'>Status</th>
-                    <th class='redth'>Created by</th>
-                    <th class='redth'>Created on</th>
+                    <th>Title</th>
+                    <th>type</th>
+                    <th>Status</th>
+                    <th>Created by</th>
+                    <th>Created on</th>
                 </tr>`;
 
       if (jsn.error) {
@@ -22,6 +23,11 @@ const getRedFlags = () => {
         let data = jsn.data;
 
         for (let i = 0; i < data.length; i++) {
+          let type = `<i class="blueth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>`;
+          if (data[i].type == "red-flag") {
+            type = `<i class="redth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>`;
+          }
+
           let selectoptions = `
           <option value=''> - select - </option>
           <option value='under investigation'>Under Investigation</option>
@@ -49,10 +55,6 @@ const getRedFlags = () => {
   `;
           }
 
-          let array = data[i].createdon.split(" ");
-          let date =
-            array[0] + " " + array[1] + " " + array[2] + " " + array[3];
-
           let myselect = `<td>` + data[i].status + `</td>`;
           if (localStorage.getItem("currentUserIsAdmin") == "true") {
             myselect =
@@ -74,12 +76,15 @@ const getRedFlags = () => {
             data[i].type +
             "'>" +
             data[i].title +
-            "</a></td>" +
+            `</a></td>
+            <td>` +
+            type +
+            `</td>` +
             myselect +
             `<td>` +
             data[i].username +
             "</td><td>" +
-            date +
+            data[i].createdon +
             "</td></tr>";
         }
         document.getElementById("incidenttitle").innerHTML = "Redflags";
@@ -221,8 +226,6 @@ const getIncident = params => {
         const data = jsn.data;
 
         let location = data.location.split(",");
-        let array = data.createdon.split(" ");
-        let date = array[0] + " " + array[1] + " " + array[2] + " " + array[3];
 
         const table =
           `
@@ -281,7 +284,7 @@ const getIncident = params => {
                   <span
                     ><b>On:</b>
                     <div>` +
-          date +
+          data.createdon +
           `</div></span
                   >
                 </small>

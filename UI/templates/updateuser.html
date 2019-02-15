@@ -13,10 +13,29 @@
     <script src="../assets/js/update_user.js"></script>
   </head>
   <body>
-    <div id="welcome_nav"></div>
-
     <div id="navigation">
-      <div id="logo"><h2>Welcome to Ireporter</h2></div>
+      <div class="menu">
+        <button onclick="myFunction()" class="dropbtn">&#9776;</button>
+        <div id="mymenu" class="menu-content">
+          <a href="userprofile.html">Profile</a>
+          <a id="userslin" href="users.html">Users</a>
+          <a class="active" href="./incidents/list.html">Incidents</a>
+          <a onclick="logout2()">Logout</a>
+        </div>
+      </div>
+
+      <div id="logo"><img src="../assets/images/logo.png" alt="logo" /></div>
+
+      <ul id="main" class="inlineblock">
+        <li><a href="userprofile.html">Profile</a></li>
+        <li id="userslink"><a href="users.html">Users</a></li>
+        <li class="active"><a href="./incidents/list.html">Incidents</a></li>
+        <li><a onclick="logout2()">Logout</a></li>
+      </ul>
+
+      <ul class="usertype inlineblock">
+        <li id="loggedinAs"></li>
+      </ul>
     </div>
 
     <div id="wrapper">
@@ -25,7 +44,7 @@
 
         <div>
           <div id="incidentheader"><h3>Update</h3></div>
-          <form action="userprofile.html" method="POST">
+          <form class="form">
             <table>
               <tr>
                 <td><label>Username</label></td>
