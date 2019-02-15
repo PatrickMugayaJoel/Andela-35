@@ -421,11 +421,12 @@ const getUsers = () => {
           <th>Admin</th>
         </tr>`;
 
-      if (jsn.error && jsn.error == "Signature verification failed") {
+      if (jsn.msg && jsn.msg == "Signature verification failed") {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
+        return;
       } else if (jsn.error) {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>" + jsn.error + "</td></tr>";
