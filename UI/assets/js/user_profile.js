@@ -15,7 +15,7 @@ const getUser = id => {
   )
     .then(response => response.json())
     .then(jsn => {
-      if (jsn.error && jsn.error == "Signature verification failed") {
+      if (jsn.msg && jsn.msg == "Signature verification failed") {
         let table_rows =
           "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
         let element = document.getElementById("tableRows");
