@@ -61,6 +61,11 @@ a.button {
   color: white;
 }
 
+.redth,
+.blueth {
+  width: 50px;
+}
+
 #dialog-content {
   width: 50%;
   min-width: 300px;
@@ -119,7 +124,7 @@ a.button {
   position: fixed;
   background-color: #0ff088;
   width: 100%;
-  padding: 2px 2%;
+  padding: 2px 0%;
   top: 0;
   min-width: 300px;
 }
@@ -135,9 +140,17 @@ hr {
   color: #eae3e333;
 }
 
-form table {
+.form {
   margin: 10px auto 20px auto;
+  padding: 1% 0%;
   width: 80%;
+  background: linear-gradient(-45deg, #12c10f, #e1dda9, #4cdcbf, #12c10fb3);
+  border-radius: 1%;
+}
+
+.form table {
+  margin: 2%;
+  width: 96%;
 }
 
 table {
@@ -321,6 +334,7 @@ footer div {
 
 .usertype {
   float: right;
+  margin-right: 2%;
 }
 
 html,
@@ -334,6 +348,7 @@ body,
 #map_info {
   width: 90%;
   height: 40%;
+  margin: auto;
 }
 
 .mapboxgl-canvas {
@@ -345,14 +360,14 @@ body,
   display: block;
   position: relative;
   margin: 0px auto;
-  width: 100%;
+  width: 60%;
   padding: 10px;
   border: none;
   border-radius: 3px;
   font-size: 12px;
   text-align: center;
   color: #222;
-  background: #fff;
+  background: #0ff088;
 }
 
 /* ------------------ small device menu ------------------------- */
