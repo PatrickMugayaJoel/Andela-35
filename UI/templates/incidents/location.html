@@ -66,14 +66,12 @@
       latitude = urlParams.get("latitude");
       title = urlParams.get("title");
 
-      if (longitude.length > 3 && latitude.length > 3 && title.length > 3) {
-        var map = L.map("map").setView([longitude, latitude], 10);
+      var map = L.map("map").setView([longitude, latitude], 10);
 
-        L.marker([longitude, latitude])
-          .bindPopup(title)
-          .addTo(map)
-          .openPopup();
-      } else var map = L.map("map").setView([0.3775, 32.6068], 10);
+      L.marker([longitude, latitude])
+        .bindPopup(title)
+        .addTo(map)
+        .openPopup();
 
       var gl = L.mapboxGL({
         accessToken:
