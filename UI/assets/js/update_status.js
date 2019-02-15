@@ -14,7 +14,7 @@ const updateStatus = (type, id) => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/" +
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       type +
       "/" +
       id +

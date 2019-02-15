@@ -2,7 +2,7 @@ const getIncident = params => {
   // Get Incident from Api to web page
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/" +
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       params.type +
       "/" +
       params.id
@@ -42,7 +42,8 @@ const updateIncident = body => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/incidents/" + body.id,
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/incidents/" +
+      body.id,
     options
   )
     .then(response => response.json())

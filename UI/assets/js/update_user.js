@@ -10,7 +10,7 @@ const getUser = id => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/users/" + id,
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/users/" + id,
     options
   )
     .then(response => response.json())
@@ -49,7 +49,7 @@ const updateUser = body => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/users/" + body.id,
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/users/" + body.id,
     options
   )
     .then(response => response.json())

@@ -57,7 +57,7 @@ const logout = () => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/logout",
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/logout",
     options
   )
     .then(response => response.json())
@@ -92,7 +92,7 @@ const logout2 = () => {
   };
 
   return fetch(
-    "https://bootcamp15app.herokuapp.com/ireporter/api/v2/auth/logout",
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/logout",
     options
   )
     .then(response => response.json())
