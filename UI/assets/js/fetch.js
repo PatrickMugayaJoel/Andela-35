@@ -1,16 +1,15 @@
 const getRedFlags = () => {
   // Add redflags from Api to web page
 
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags"
-  )
+  return fetch("http://localhost:5000/ireporter/api/v2/red-flags")
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
-                    <th class='redth'>Title</th>
-                    <th class='redth'>Status</th>
-                    <th class='redth'>Created by</th>
-                    <th class='redth'>Created on</th>
+                    <th>Title</th>
+                    <th>type</th>
+                    <th>Status</th>
+                    <th>Created by</th>
+                    <th>Created on</th>
                 </tr>`;
 
       if (jsn.error) {
@@ -22,6 +21,11 @@ const getRedFlags = () => {
         let data = jsn.data;
 
         for (let i = 0; i < data.length; i++) {
+          let type = `<i class="blueth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>`;
+          if (data[i].type == "red-flag") {
+            type = `<i class="redth">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>`;
+          }
+
           let selectoptions = `
           <option value=''> - select - </option>
           <option value='under investigation'>Under Investigation</option>
@@ -49,10 +53,6 @@ const getRedFlags = () => {
   `;
           }
 
-          let array = data[i].createdon.split(" ");
-          let date =
-            array[0] + " " + array[1] + " " + array[2] + " " + array[3];
-
           let myselect = `<td>` + data[i].status + `</td>`;
           if (localStorage.getItem("currentUserIsAdmin") == "true") {
             myselect =
@@ -74,110 +74,18 @@ const getRedFlags = () => {
             data[i].type +
             "'>" +
             data[i].title +
-            "</a></td>" +
+            `</a></td>
+            <td>` +
+            type +
+            `</td>` +
             myselect +
             `<td>` +
             data[i].username +
             "</td><td>" +
-            date +
+            data[i].createdon +
             "</td></tr>";
         }
         document.getElementById("incidenttitle").innerHTML = "Redflags";
-        let element = document.getElementById("tableRows");
-        element.innerHTML = table_rows;
-      }
-    })
-    .catch(err => {
-      console.log("Fetch Error :-S", err);
-      userMessage(err, "rgb(224, 35, 35)");
-    });
-};
-
-const getInternvetions = () => {
-  // Add redflags from Api to web page
-
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/interventions"
-  )
-    .then(response => response.json())
-    .then(jsn => {
-      let table_rows = `<tr>
-                    <th class='blueth'>Title</th>
-                    <th class='blueth'>Status</th>
-                    <th class='blueth'>Created by</th>
-                    <th class='blueth'>Created on</th>
-                </tr>`;
-
-      if (jsn.error) {
-        table_rows +=
-          "<tr><td id='emptytable' colspan='7'>" + jsn.error + "</td></tr>";
-        let element = document.getElementById("tableRows");
-        element.innerHTML = table_rows;
-      } else {
-        let data = jsn.data;
-
-        for (let i = 0; i < data.length; i++) {
-          let selectoptions = `
-          <option value=''> - select - </option>
-          <option value='under investigation'>Under Investigation</option>
-          <option value='rejected'>Rejected</option>
-          <option value='resolved'>Resolved</option>
-          `;
-
-          if (data[i].status == "rejected") {
-            selectoptions = `
-  <option value='under investigation'>Under Investigation</option>
-  <option selected value='rejected'>Rejected</option>
-  <option value='resolved'>Resolved</option>
-  `;
-          } else if (data[i].status == "resolved") {
-            selectoptions = `
-  <option value='under investigation'>Under Investigation</option>
-  <option value='rejected'>Rejected</option>
-  <option selected value='resolved'>Resolved</option>
-  `;
-          } else if (data[i].status == "under investigation") {
-            selectoptions = `
-  <option selected value='under investigation'>Under Investigation</option>
-  <option value='rejected'>Rejected</option>
-  <option value='resolved'>Resolved</option>
-  `;
-          }
-
-          let array = data[i].createdon.split(" ");
-          let date =
-            array[0] + " " + array[1] + " " + array[2] + " " + array[3];
-
-          let myselect = `<td>` + data[i].status + `</td>`;
-          if (localStorage.getItem("currentUserIsAdmin") == "true") {
-            myselect =
-              `<td class='select-status'><form>
-  <select id='` +
-              data[i].flag_id +
-              `' onchange="updateStatus('red-flags', ` +
-              data[i].flag_id +
-              `)">` +
-              selectoptions +
-              `</select>
-  </form></td>`;
-          }
-
-          table_rows +=
-            "<tr><td><a href='incident.html?id=" +
-            data[i].flag_id +
-            "&type=" +
-            data[i].type +
-            "'>" +
-            data[i].title +
-            "</a></td>" +
-            myselect +
-            `<td>` +
-            data[i].username +
-            "</td><td>" +
-            date +
-            "</td></tr>";
-        }
-        document.getElementById("incidenttitle").innerHTML = "Internventions";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
       }
@@ -199,10 +107,7 @@ const login = body => {
     })
   };
 
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/login",
-    options
-  )
+  return fetch("http://localhost:5000/ireporter/api/v2/auth/login", options)
     .then(response => response.json())
     .then(data => {
       if (data.status == 200) {
@@ -239,10 +144,7 @@ const signup = body => {
     })
   };
 
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/signup",
-    options
-  )
+  return fetch("http://localhost:5000/ireporter/api/v2/auth/signup", options)
     .then(response => response.json())
     .then(data => {
       if (data.status == 201) {
@@ -275,10 +177,7 @@ const createIncident = body => {
     })
   };
 
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" + body.type,
-    options
-  )
+  return fetch("http://localhost:5000/ireporter/api/v2/" + body.type, options)
     .then(response => response.json())
     .then(data => {
       if (data.status == 201) {
@@ -300,10 +199,7 @@ const getIncident = params => {
   // Get Incident from Api to web page
 
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
-      params.type +
-      "/" +
-      params.id
+    "http://localhost:5000/ireporter/api/v2/" + params.type + "/" + params.id
   )
     .then(response => response.json())
     .then(jsn => {
@@ -316,8 +212,6 @@ const getIncident = params => {
         const data = jsn.data;
 
         let location = data.location.split(",");
-        let array = data.createdon.split(" ");
-        let date = array[0] + " " + array[1] + " " + array[2] + " " + array[3];
 
         const table =
           `
@@ -376,7 +270,7 @@ const getIncident = params => {
                   <span
                     ><b>On:</b>
                     <div>` +
-          date +
+          data.createdon +
           `</div></span
                   >
                 </small>
@@ -406,10 +300,7 @@ const getUsers = () => {
     })
   };
 
-  return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/users",
-    options
-  )
+  return fetch("http://localhost:5000/ireporter/api/v2/users", options)
     .then(response => response.json())
     .then(jsn => {
       let table_rows = `<tr>
