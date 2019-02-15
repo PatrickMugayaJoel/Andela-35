@@ -32,7 +32,7 @@ const getUser = id => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -58,11 +58,15 @@ const updateUser = body => {
         localStorage.setItem("userMassage", "User successfully updated.");
         window.location.href = "userprofile.html?id=" + data["data"][0]["id"];
       } else {
-        userMessage(data.error, "#f5313180");
+        if (data.error && data.error == "Signature verification failed") {
+          userMessage("Network Error", "rgb(224, 35, 35)");
+        } else {
+          userMessage(data.error, "rgb(224, 35, 35)");
+        }
       }
     })
     .catch(err => {
       console.log("Fetch Error: ", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };

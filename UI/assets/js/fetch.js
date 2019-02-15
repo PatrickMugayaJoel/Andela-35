@@ -89,7 +89,7 @@ const getRedFlags = () => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -184,7 +184,7 @@ const getInternvetions = () => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -219,12 +219,12 @@ const login = body => {
 
         window.location.href = "./incidents/list.html";
       } else {
-        userMessage(data.error, "#f5313180");
+        userMessage(data.error, "rgb(224, 35, 35)");
       }
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -252,12 +252,12 @@ const signup = body => {
         );
         window.location.href = "index.html";
       } else {
-        userMessage(data.error, "#f5313180");
+        userMessage(data.error, "rgb(224, 35, 35)");
       }
     })
     .catch(err => {
       console.log("Fetch Error: ", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -287,12 +287,12 @@ const createIncident = body => {
         //   "userMassage", data.message);
         window.location.href = "list.html";
       } else {
-        userMessage(data.error, "#f5313180");
+        userMessage(data.error, "rgb(224, 35, 35)");
       }
     })
     .catch(err => {
       console.log("Fetch Error: ", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -391,7 +391,7 @@ const getIncident = params => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };
 
@@ -421,12 +421,17 @@ const getUsers = () => {
           <th>Admin</th>
         </tr>`;
 
-      if (jsn.error) {
+      if (jsn.error && jsn.error == "Signature verification failed") {
+        table_rows +=
+          "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
+        let element = document.getElementById("tableRows");
+        element.innerHTML = table_rows;
+      } else if (jsn.error) {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>" + jsn.error + "</td></tr>";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
-      } else if (jsn.status == 401) {
+      } else if (jsn.data[0].message) {
         table_rows +=
           "<tr><td id='emptytable' colspan='6'>" +
           jsn.data[0].message +
@@ -460,6 +465,6 @@ const getUsers = () => {
     })
     .catch(err => {
       console.log("Fetch Error :-S", err);
-      userMessage(err, "#f5313180");
+      userMessage(err, "rgb(224, 35, 35)");
     });
 };

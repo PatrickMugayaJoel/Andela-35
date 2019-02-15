@@ -89,12 +89,22 @@
         localStorage.getItem("userMassage") != "null" &&
         localStorage.getItem("userMassage") != null
       ) {
-        userMessage(
-          localStorage.getItem("userMassage"),
-          "rgba(173, 212, 222, 0.38)"
-        );
+        userMessage(localStorage.getItem("userMassage"), "rgb(171, 211, 221)");
         localStorage.setItem("userMassage", null);
       }
+    </script>
+
+    <script src="../assets/js/update_isadmin.js"></script>
+
+    <script type="text/javascript">
+      const adminRights = id => {
+        // update admin rights
+        let body = {
+          id: id,
+          is_admin: document.getElementById("isadmin").value
+        };
+        updateUser(body);
+      };
     </script>
   </body>
 </html>
