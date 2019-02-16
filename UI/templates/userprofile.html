@@ -28,20 +28,52 @@
       <div class="menu">
         <button onclick="myFunction()" class="dropbtn">&#9776;</button>
         <div id="mymenu" class="menu-content">
-          <a href="userprofile.html">Profile</a>
-          <a id="userslin" href="users.html">Users</a>
-          <a class="active" href="./incidents/list.html">Incidents</a>
-          <a onclick="logout2()">Logout</a>
+          <a id="profilea" href="userprofile.html"
+            ><i class="icon"><img src="../assets/icons/profile-pg.png"/></i>
+            <div>Profile</div></a
+          >
+          <a id="userslin" href="users.html"
+            ><i class="icon"><img src="../assets/icons/team.png"/></i>
+            <div>Users</div></a
+          >
+          <a id="incidenta" href="./incidents/list.html"
+            ><i class="icon"><img src="../assets/icons/flag.png"/></i>
+            <div>Incidents</div></a
+          >
+          <a onclick="logout2()"
+            ><i class="icon"><img src="../assets/icons/logout.png"/></i>
+            <div>Logout</div></a
+          >
         </div>
       </div>
 
       <div id="logo"><img src="../assets/images/logo.png" alt="logo" /></div>
 
       <ul id="main" class="inlineblock">
-        <li><a href="userprofile.html">Profile</a></li>
-        <li id="userslink"><a href="users.html">Users</a></li>
-        <li class="active"><a href="./incidents/list.html">Incidents</a></li>
-        <li><a onclick="logout2()">Logout</a></li>
+        <li id="profilel">
+          <a href="userprofile.html"
+            ><i class="icon"><img src="../assets/icons/profile-pg.png"/></i>
+            <div>Profile</div></a
+          >
+        </li>
+        <li id="userslink">
+          <a href="users.html"
+            ><i class="icon"><img src="../assets/icons/team.png"/></i>
+            <div>Users</div></a
+          >
+        </li>
+        <li id="incidentl">
+          <a href="./incidents/list.html"
+            ><i class="icon"><img src="../assets/icons/flag.png"/></i>
+            <div>Incidents</div></a
+          >
+        </li>
+        <li>
+          <a onclick="logout2()"
+            ><i class="icon"><img src="../assets/icons/logout.png"/></i>
+            <div>Logout</div></a
+          >
+        </li>
       </ul>
 
       <ul class="usertype inlineblock">
@@ -68,6 +100,9 @@
     </footer>
 
     <script type="text/javascript">
+      document.getElementById("profilel").className = "active";
+      document.getElementById("profilea").className = "active";
+
       const urlParams = new URLSearchParams(window.location.search);
       let id = urlParams.get("id");
 
@@ -76,7 +111,8 @@
 
       let loggedinAs = document.getElementById("loggedinAs");
       loggedinAs.innerHTML =
-        "logged in as: " + localStorage.getItem("currentUserUsername");
+        `<i class="icon"><img src='../assets/icons/profile-img.png' /></i> ` +
+        localStorage.getItem("currentUserUsername");
 
       if (localStorage.getItem("currentUserIsAdmin") != "true") {
         let element = document.getElementById("userslink");

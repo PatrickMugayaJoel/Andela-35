@@ -53,7 +53,8 @@
 
       let loggedinAs = document.getElementById("loggedinAs");
       loggedinAs.innerHTML =
-        "logged in as: " + localStorage.getItem("currentUserUsername");
+        `<i class="icon"><img src='../../assets/icons/profile-img.png' /></i> ` +
+        localStorage.getItem("currentUserUsername");
 
       const urlParams = new URLSearchParams(window.location.search);
 
@@ -71,6 +72,9 @@
         userMessage(localStorage.getItem("userMassage"), "rgb(171, 211, 221)");
         localStorage.setItem("userMassage", null);
       }
+
+      document.getElementById("incidentl").className = "active";
+      document.getElementById("incidenta").className = "active";
     </script>
   </body>
 </html>
