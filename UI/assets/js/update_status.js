@@ -12,6 +12,7 @@ const updateStatus = (type, id) => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       type +
@@ -28,8 +29,11 @@ const updateStatus = (type, id) => {
       } else {
         userMessage(data.error, "rgb(224, 35, 35)");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });

@@ -9,6 +9,7 @@ const getUser = id => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/users/" + id,
     options
@@ -108,8 +109,11 @@ const getUser = id => {
           </td>
         </tr>`;
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });

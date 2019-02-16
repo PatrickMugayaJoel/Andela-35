@@ -1,6 +1,7 @@
 const getRedFlags = () => {
   // Add redflags from Api to web page
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags"
   )
@@ -91,8 +92,11 @@ const getRedFlags = () => {
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -109,6 +113,7 @@ const login = body => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/login",
     options
@@ -131,8 +136,11 @@ const login = body => {
       } else {
         userMessage(data.error, "rgb(224, 35, 35)");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -149,6 +157,7 @@ const signup = body => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/signup",
     options
@@ -164,8 +173,11 @@ const signup = body => {
       } else {
         userMessage(data.error, "rgb(224, 35, 35)");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -185,6 +197,7 @@ const createIncident = body => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/" + body.type,
     options
@@ -199,8 +212,11 @@ const createIncident = body => {
       } else {
         userMessage(data.error, "rgb(224, 35, 35)");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -209,6 +225,7 @@ const createIncident = body => {
 const getIncident = params => {
   // Get Incident from Api to web page
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       params.type +
@@ -296,8 +313,11 @@ const getIncident = params => {
         let element = document.getElementById("incident");
         element.innerHTML = table;
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -314,6 +334,7 @@ const getUsers = () => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/users",
     options
@@ -334,6 +355,8 @@ const getUsers = () => {
           "<tr><td id='emptytable' colspan='6'>Network Error</td></tr>";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
+
+        document.getElementById("loader").style.display = "none";
         return;
       } else if (jsn.error) {
         table_rows +=
@@ -371,8 +394,11 @@ const getUsers = () => {
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });

@@ -56,6 +56,7 @@ const logout = () => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/logout",
     options
@@ -73,8 +74,11 @@ const logout = () => {
         console.log("Logout Error see response object:-S ", data);
         throw new Error("error logging out!");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       window.location.href = "../index.html";
     });
@@ -91,6 +95,7 @@ const logout2 = () => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/logout",
     options
@@ -108,8 +113,11 @@ const logout2 = () => {
         console.log("Logout Error see response object:-S ", data);
         throw new Error("error logging out!");
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       window.location.href = "index.html";
     });
