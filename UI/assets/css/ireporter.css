@@ -91,11 +91,7 @@ a.button {
 }
 
 #navigation .active {
-  background-color: #66686c66;
-}
-
-#navigation .active a {
-  color: white;
+  background-color: #fcf9f9;
 }
 
 #navigation #logo img {
@@ -116,7 +112,12 @@ a.button {
 }
 
 #main a {
-  color: #6c6666b3;
+  color: black;
+}
+
+li a div,
+.menu a div {
+  display: inline-block;
 }
 
 #navigation {
@@ -335,6 +336,10 @@ footer div {
 .usertype {
   float: right;
   margin-right: 2%;
+}
+
+.icon img {
+  height: 14px;
 }
 
 html,
