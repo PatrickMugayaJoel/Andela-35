@@ -120,7 +120,8 @@ Add a description</textarea
 
       let loggedinAs = document.getElementById("loggedinAs");
       loggedinAs.innerHTML =
-        "logged in as: " + localStorage.getItem("currentUserUsername");
+        `<i class="icon"><img src='../../assets/icons/profile-img.png' /></i> ` +
+        localStorage.getItem("currentUserUsername");
 
       toCreateIncident = () => {
         let obj = {};
@@ -181,6 +182,9 @@ Add a description</textarea
         document.getElementById("longitude").value = e.latlng.lng;
         onMapClick(e);
       });
+
+      document.getElementById("incidentl").className = "active";
+      document.getElementById("incidenta").className = "active";
     </script>
   </body>
 </html>
