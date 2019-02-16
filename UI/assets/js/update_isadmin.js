@@ -10,6 +10,7 @@ const updateUser = body => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/users/" + body.id,
     options
@@ -26,8 +27,11 @@ const updateUser = body => {
           userMessage(data.error, "rgb(224, 35, 35)");
         }
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });

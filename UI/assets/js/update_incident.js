@@ -1,6 +1,7 @@
 const getIncident = params => {
   // Get Incident from Api to web page
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       params.type +
@@ -22,8 +23,11 @@ const getIncident = params => {
         document.getElementById("title").value = data.title;
         document.getElementById("description").value = data.comment;
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
@@ -41,6 +45,7 @@ const updateIncident = body => {
     })
   };
 
+  document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/incidents/" +
       body.id,
@@ -59,8 +64,11 @@ const updateIncident = body => {
           userMessage(data.error, "rgb(224, 35, 35)");
         }
       }
+
+      document.getElementById("loader").style.display = "none";
     })
     .catch(err => {
+      document.getElementById("loader").style.display = "none";
       console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
