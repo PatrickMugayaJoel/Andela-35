@@ -99,6 +99,10 @@ a.button {
   float: left;
 }
 
+a {
+  cursor: pointer;
+}
+
 #navigation #logo h2 {
   text-align: center;
 }
