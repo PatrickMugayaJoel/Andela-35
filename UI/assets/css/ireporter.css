@@ -51,6 +51,35 @@ a.button {
   transition: all 400ms ease-in;
 }
 
+#loader {
+  color: white;
+  background: #00000080;
+  height: 70%;
+  width: 96.5%;
+  z-index: 10;
+  position: absolute;
+  display: none;
+}
+#loader span {
+  top: 40%;
+  left: 45%;
+  width: 10%;
+  position: absolute;
+}
+@keyframes scaling {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+#loader span {
+  animation-name: scaling;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
 .blueth {
   background-color: #0707c3e6;
   color: white;
