@@ -12,11 +12,6 @@
       rel="stylesheet"
       href="../../assets/css/ireporter.css"
     />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="../../assets/css/font/css/fontawesome.css"
-    />
 
     <script type="text/javascript">
       if (
@@ -89,7 +84,11 @@
 
       let loggedinAs = document.getElementById("loggedinAs");
       loggedinAs.innerHTML =
-        "logged in as: " + localStorage.getItem("currentUserUsername");
+        `<i class="icon"><img src='../../assets/icons/profile-img.png' /></i> ` +
+        localStorage.getItem("currentUserUsername");
+
+      document.getElementById("incidentl").className = "active";
+      document.getElementById("incidenta").className = "active";
     </script>
   </body>
 </html>
