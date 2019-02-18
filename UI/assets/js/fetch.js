@@ -235,10 +235,11 @@ const getIncident = params => {
     .then(response => response.json())
     .then(jsn => {
       if (jsn.error) {
-        table_rows +=
-          "<tr><td id='emptytable' colspan='7'>" + jsn.error + "</td></tr>";
-        let element = document.getElementById("tableRows");
-        element.innerHTML = table_rows;
+        let element = document.getElementById("incident");
+        element.innerHTML =
+          "<table><tr><td id='emptytable' colspan='7'>" +
+          jsn.error +
+          "</td></tr></table>";
       } else {
         const data = jsn.data;
 
@@ -400,6 +401,49 @@ const getUsers = () => {
     .catch(err => {
       document.getElementById("loader").style.display = "none";
       console.log("Fetch Error :-S", err);
+      userMessage(err, "rgb(224, 35, 35)");
+    });
+};
+
+const uploadFile = () => {
+  // Upload File post
+
+  let form = new FormData();
+  form.append("type", "image");
+
+  const myinput = document.querySelector("#file");
+  form.append("file", myinput.files[0]);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  form.append("id", urlParams.get("id"));
+
+  const options = {
+    method: "POST",
+    body: form,
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  };
+  delete options.headers["Content-Type"];
+
+  document.getElementById("uploading").innerHTML =
+    "<div>Uploading..<br>Please wait</div>";
+  return fetch(
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags/1/images",
+    options
+  )
+    .then(response => response.json())
+    .then(data => {
+      if (data.status == 201) {
+        getImages();
+      } else if (data.error) {
+        userMessage(data.error, "rgb(224, 35, 35)");
+      } else {
+        userMessage("Upload failed!", "rgb(224, 35, 35)");
+      }
+    })
+    .catch(err => {
+      console.log("Fetch Error: ", err);
       userMessage(err, "rgb(224, 35, 35)");
     });
 };

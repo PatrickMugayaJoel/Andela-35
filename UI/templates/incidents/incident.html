@@ -25,6 +25,7 @@
     <script src="../../assets/js/elements.js"></script>
     <script src="../../assets/js/ireporter.js"></script>
     <script src="../../assets/js/fetch.js"></script>
+    <script src="../../assets/js/getImages.js"></script>
   </head>
   <body>
     <div id="navigation"></div>
@@ -38,6 +39,12 @@
         </div>
 
         <div id="incident"></div>
+
+        <form hidden>
+          <input type="file" onchange="uploadFile()" name="file" id="file" />
+        </form>
+
+        <div id="showimgs"></div>
       </div>
     </div>
 
@@ -80,6 +87,8 @@
 
       document.getElementById("incidentl").className = "active";
       document.getElementById("incidenta").className = "active";
+
+      getImages();
     </script>
   </body>
 </html>
