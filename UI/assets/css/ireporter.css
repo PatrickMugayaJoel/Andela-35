@@ -133,38 +133,35 @@ a.button {
   float: left;
 }
 
-#showimgs img {
-  max-width: 100%;
-  max-height: 100%;
+#showimgs {
+  width: 100%;
+  text-align: left;
 }
 
-#showimgs table {
-  min-width: 30%;
-}
-
-#uploading div {
-  text-align: center;
-  padding: 20% 0%;
-}
-
-#showimgs td {
-  background: #ccccf8b3;
+.showimgs,
+#uploading {
   width: 30%;
-  min-height: 30vh;
+  padding-top: 30%;
+  margin: 1%;
+  display: inline-grid;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-#showimgs td div img {
-  max-width: 20%;
-  padding: 40% 40%;
+#uploading {
+  text-align: center;
+  padding-top: 0%;
 }
 
-#showimgs td div:hover,
-#showimgs td div:active {
+#uploading:hover,
+#uploading:active {
   cursor: pointer;
   background: #ccccf8e6;
 }
 
-a {
+a,
+#uploading {
   cursor: pointer;
 }
 
@@ -504,6 +501,13 @@ body,
 
   #incident table #footrow {
     text-align: left;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .showimgs,
+  #uploading {
+    width: 40%;
   }
 }
 
