@@ -196,6 +196,7 @@ li a div,
   padding: 2px 0%;
   top: 0;
   min-width: 300px;
+  z-index: 99999;
 }
 
 #navigation ul li {
