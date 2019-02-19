@@ -494,6 +494,13 @@ body,
   #main_content .doublefield input {
     width: 45.25%;
   }
+  .showimgs,
+  #uploading {
+    width: 280px;
+  }
+  .showimgs {
+    padding-top: 270px;
+  }
 }
 
 @media all and (max-width: 430px) {
