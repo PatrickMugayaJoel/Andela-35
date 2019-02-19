@@ -136,11 +136,13 @@ a.button {
 #showimgs {
   width: 100%;
   text-align: left;
+  /* max-height: 350px; */
 }
 
 .showimgs,
 #uploading {
   width: 30%;
+  /* max-width: 350px; */
   padding-top: 30%;
   margin: 1%;
   display: inline-grid;
