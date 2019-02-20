@@ -42,6 +42,20 @@ a.button {
   padding: 1%;
 }
 
+a {
+  text-decoration: none;
+}
+
+td a:hover,
+td a:active {
+  color: blue;
+  font-size: large;
+}
+
+#incidenttitle {
+  font-size: x-large;
+}
+
 /*= Dialog */
 
 #dialog {
@@ -191,7 +205,7 @@ li a div,
 #navigation {
   margin: 0%;
   position: fixed;
-  background-color: #0ff088;
+  background: linear-gradient(-45deg, #12c10fb3, #e1dda9, #4cdcbf, #12c10f);
   width: 100%;
   padding: 2px 0%;
   top: 0;
@@ -228,7 +242,7 @@ table {
 }
 
 .userstable th {
-  background-color: #0ff088;
+  background: linear-gradient(-45deg, #12c10fb3, #4cdcbf, #e1dda9);
 }
 
 #incident table {
@@ -263,7 +277,7 @@ td#emptytable {
 }
 
 #incident table #footrow {
-  background-color: #0ff088;
+  background: linear-gradient(-45deg, #12c10fb3, #4cdcbf, #e1dda9);
   height: 60px;
   text-align: center;
 }
@@ -376,13 +390,14 @@ textarea {
 }
 
 footer {
-  position: absolute;
-  margin: 0px auto 10px auto;
+  position: fixed;
+  margin: 0px auto 0px auto;
   width: 92%;
   min-width: 300px;
   border-style: none;
   padding: 0% 4%;
-  background-color: #0ff088;
+  background: linear-gradient(-45deg, #12c10fb3, #4cdcbf, #e1dda9, #12c10f);
+  bottom: 0;
 }
 
 footer div {
