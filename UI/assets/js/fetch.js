@@ -1,9 +1,16 @@
 const getRedFlags = () => {
   // Add redflags from Api to web page
 
+  const options = {
+    headers: new Headers({
+      Authorization: "Bearer " + localStorage.getItem("currentUserToken")
+    })
+  };
+
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags"
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags",
+    options
   )
     .then(response => response.json())
     .then(jsn => {
@@ -88,7 +95,6 @@ const getRedFlags = () => {
             data[i].createdon +
             "</td></tr>";
         }
-        document.getElementById("incidenttitle").innerHTML = "Redflags";
         let element = document.getElementById("tableRows");
         element.innerHTML = table_rows;
       }
@@ -225,12 +231,19 @@ const createIncident = body => {
 const getIncident = params => {
   // Get Incident from Api to web page
 
+  const options = {
+    headers: new Headers({
+      Authorization: "Bearer " + localStorage.getItem("currentUserToken")
+    })
+  };
+
   document.getElementById("loader").style.display = "block";
   return fetch(
     "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
       params.type +
       "/" +
-      params.id
+      params.id,
+    options
   )
     .then(response => response.json())
     .then(jsn => {
