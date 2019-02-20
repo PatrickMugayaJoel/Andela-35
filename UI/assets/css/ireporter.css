@@ -46,8 +46,8 @@ a {
   text-decoration: none;
 }
 
-td a:hover,
-td a:active {
+.title a:hover,
+.title a:active {
   color: blue;
   font-size: large;
 }
