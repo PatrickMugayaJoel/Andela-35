@@ -78,7 +78,7 @@ const getRedFlags = () => {
           }
 
           table_rows +=
-            "<tr><td><a href='incident.html?id=" +
+            `<tr><td class="title"><a href='incident.html?id=` +
             data[i].flag_id +
             "&type=" +
             data[i].type +
