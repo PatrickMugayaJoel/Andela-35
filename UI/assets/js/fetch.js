@@ -191,8 +191,7 @@ const signup = body => {
 
 const createIncident = body => {
   // post incident
-
-  console.log(body);
+  // TODO: test me
 
   const options = {
     method: "POST",
@@ -212,9 +211,7 @@ const createIncident = body => {
     .then(data => {
       if (data.status == 201) {
         console.log(data.data[0].message);
-        // localStorage.setItem(
-        //   "userMassage", data.message);
-        window.location.href = "list.html";
+        addImageOnCreation(data.data[0].id, body.type);
       } else {
         userMessage(data.error, "rgb(224, 35, 35)");
       }
@@ -442,7 +439,9 @@ const uploadFile = () => {
   document.getElementById("uploading").innerHTML =
     "<div>Uploading..<br>Please wait</div>";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags/1/images",
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags/" +
+      urlParams.get("id") +
+      "/images",
     options
   )
     .then(response => response.json())
@@ -453,6 +452,49 @@ const uploadFile = () => {
         userMessage(data.error, "rgb(224, 35, 35)");
       } else {
         userMessage("Upload failed!", "rgb(224, 35, 35)");
+      }
+    })
+    .catch(err => {
+      console.log("Fetch Error: ", err);
+      userMessage(err, "rgb(224, 35, 35)");
+    });
+};
+
+addImageOnCreation = (id, type) => {
+  let form = new FormData();
+  form.append("type", "image");
+  form.append("id", id);
+
+  const myinput = document.querySelector("#file");
+  form.append("file", myinput.files[0]);
+
+  const options = {
+    method: "POST",
+    body: form,
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  };
+  delete options.headers["Content-Type"];
+
+  fetch(
+    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags/" +
+      id +
+      "/images",
+    options
+  )
+    .then(response => response.json())
+    .then(data => {
+      if (data.status == 201) {
+        console.log("Image uploaded");
+
+        if (type == "interventions") {
+          type = "intervention";
+        } else {
+          type = "red-flag";
+        }
+
+        window.location.href = "incident.html?id=" + id + "&type=" + type;
       }
     })
     .catch(err => {
