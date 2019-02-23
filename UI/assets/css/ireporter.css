@@ -48,8 +48,11 @@ a {
 
 .title a:hover,
 .title a:active {
-  color: blue;
   font-size: large;
+}
+
+.title a {
+  color: #ff2a04;
 }
 
 #incidenttitle {
@@ -329,6 +332,11 @@ td#emptytable {
   box-shadow: 0px 2px 1px #47a2c61a;
 }
 
+#main_content .inputfield input[type="file"] {
+  border-color: transparent;
+  padding: 2px 0px;
+}
+
 textarea {
   height: 70px;
 }
@@ -398,6 +406,7 @@ footer {
   padding: 0% 4%;
   background: linear-gradient(-45deg, #12c10fb3, #4cdcbf, #e1dda9, #12c10f);
   bottom: 0;
+  z-index: 9999;
 }
 
 footer div {
