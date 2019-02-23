@@ -79,10 +79,26 @@ Add a description</textarea
                 </td>
               </tr>
               <tr>
-                <td><label></label></td>
-                <td hidden class="doublefield">
-                  <input type="number" id="latitude" placeholder="latitude" />
-                  <input type="number" id="longitude" placeholder="longitude" />
+                <td><label>Location</label></td>
+                <td class="doublefield">
+                  <input
+                    disabled
+                    type="number"
+                    id="latitude"
+                    placeholder="select on map"
+                  />
+                  <input
+                    disabled
+                    type="number"
+                    id="longitude"
+                    placeholder="select on map"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Image (optional)</label></td>
+                <td class="inputfield">
+                  <input type="file" name="file" id="file" />
                 </td>
               </tr>
               <tr>
@@ -149,7 +165,6 @@ Add a description</textarea
             "rgb(224, 35, 35)"
           );
         } else createIncident(obj);
-        console.log(latitude);
       };
     </script>
 
