@@ -3,7 +3,7 @@ const getIncident = params => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/" +
       params.type +
       "/" +
       params.id
@@ -47,7 +47,7 @@ const updateIncident = body => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/incidents/" +
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/incidents/" +
       body.id,
     options
   )

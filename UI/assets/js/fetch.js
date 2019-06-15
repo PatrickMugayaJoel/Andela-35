@@ -9,8 +9,7 @@ const getRedFlags = () => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/red-flags",
-    options
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/red-flags"
   )
     .then(response => response.json())
     .then(jsn => {
@@ -121,7 +120,7 @@ const login = body => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/login",
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/auth/login",
     options
   )
     .then(response => response.json())
@@ -165,7 +164,7 @@ const signup = body => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/auth/signup",
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/auth/signup",
     options
   )
     .then(response => response.json())
@@ -204,7 +203,7 @@ const createIncident = body => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" + body.type,
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/" + body.type,
     options
   )
     .then(response => response.json())
@@ -236,7 +235,7 @@ const getIncident = params => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/" +
       params.type +
       "/" +
       params.id,
@@ -347,7 +346,7 @@ const getUsers = () => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/users",
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/users",
     options
   )
     .then(response => response.json())

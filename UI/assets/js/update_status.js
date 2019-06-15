@@ -14,7 +14,7 @@ const updateStatus = (type, id) => {
 
   document.getElementById("loader").style.display = "block";
   return fetch(
-    "https://challenge-four.herokuapp.com/ireporter/api/v2/" +
+    "https://ireporter-bootcamp.herokuapp.com/ireporter/api/v2/" +
       type +
       "/" +
       id +
