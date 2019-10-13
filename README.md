@@ -1,6 +1,6 @@
 # iReporter_UI
 
-[Visit page](https://patrickmugayajoel.github.io/Andela-35/UI/templates/)
+[Visit page](https://patrickmugayajoel.github.io/IReporter_Front/UI/templates/)
 
 IReporter is a government system that enables citizens to bring any form of corruption to the notice of appropriate authorities and the general public.
 Users can also report on things that needs government intervention
